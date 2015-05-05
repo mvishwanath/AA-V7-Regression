@@ -1,0 +1,2698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="47f3f5f2-4f6c-4d36-ab78-01624c1b07b9" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://apps-apis.dev.accela.com" type="rest" basePath="" definitionUrl="/Users/mvishwanath/Documents/_1.wadl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="47f3f5f2-4f6c-4d36-ab78-01624c1b07b9fileName">https%3A%2F%2Fapps-apis.dev.accela.com</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="file:/Users/mvishwanath/Documents/_1.wadl"><con:part><con:url>file:/Users/mvishwanath/Documents/_1.wadl</con:url><con:content><![CDATA[<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="https://apps-apis.dev.accela.com"/>
+  <resources base="">
+    <resource path="v4/settings/addresses/streetSuffixes" id="AddressesStreetSuffixes">
+      <doc xml:lang="en" title="AddressesStreetSuffixes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddressesSufixes">
+        <doc xml:lang="en" title="GetAllAddressesSufixes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/agencies/{name}/environments" id="AgencyEnvironments">
+      <doc xml:lang="en" title="AgencyEnvironments"/>
+      <param name="name" default="name" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="AgencyEnvironments">
+        <doc xml:lang="en" title="AgencyEnvironments"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/agencies" id="AllAgencies">
+      <doc xml:lang="en" title="AllAgencies"/>
+      <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="Offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAgencies">
+        <doc xml:lang="en" title="GetAllAgencies"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/announcements" id="AllAnnouncements">
+      <doc xml:lang="en" title="AllAnnouncements"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAnnouncements">
+        <doc xml:lang="en" title="GetAllAnnouncements"/>
+        <request/>
+        <response status="400 404 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/parcels" id="AllParcels">
+      <doc xml:lang="en" title="AllParcels"/>
+      <param name="streetStart" default="{streetStart}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="section" default="{section}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetName" default="{streetName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetType" default="{streetType}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="range" default="{range}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="isPrimary" default="{isPrimary}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fullName" default="{fullName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="city" default="{city}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="township" default="{township}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="parcelNumber" default="{parcelNumber}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetEnd" default="{streetEnd}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lot" default="{lot}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllParcels">
+        <doc xml:lang="en" title="GetAllParcels"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 401">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/appsettings/" id="AppSettings">
+      <doc xml:lang="en" title="AppSettings"/>
+      <param name="keys" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="appId" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="appSecret" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="agency" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAppsettings">
+        <doc xml:lang="en" title="GetAllAppsettings"/>
+        <request/>
+        <response status="401 404 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+          <representation mediaType="text/plain; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{ids}/assign" id="AssignInspections">
+      <doc xml:lang="en" title="AssignInspections"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="inspectorId" default="{inspectorId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="AssignInspections">
+        <doc xml:lang="en" title="AssignInspections"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{ids}/cancel" id="CancelInspections">
+      <doc xml:lang="en" title="CancelInspections"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="CancelInspections">
+        <doc xml:lang="en" title="CancelInspections"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403 404 500">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/civicid/citizenaccess/profile" id="CitizenProfile">
+      <doc xml:lang="en" title="CitizenProfile"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="agencyName" type="xs:string" required="false" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="CitizenProfile">
+        <doc xml:lang="en" title="CitizenProfile"/>
+        <request/>
+        <response status="401 403 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/civicid/citizenaccess/contacts" id="CitizensContacts">
+      <doc xml:lang="en" title="CitizensContacts"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="CitizensContacts">
+        <doc xml:lang="en" title="CitizensContacts"/>
+        <request/>
+        <response status="401 403 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/contacts/{contactId}/conditions" id="CreateContactConditions">
+      <doc xml:lang="en" title="CreateContactConditions"/>
+      <param name="contactId" default="contactId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateContactConditions">
+        <doc xml:lang="en" title="CreateContactConditions"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 404 500">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/contacts" id="CreateContacts">
+      <doc xml:lang="en" title="CreateContacts"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateContacts">
+        <doc xml:lang="en" title="CreateContacts"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/checklists" id="CreateInspectionChecklist">
+      <doc xml:lang="en" title="CreateInspectionChecklist"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateInspectionChecklist">
+        <doc xml:lang="en" title="CreateInspectionChecklist"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/conditions" id="CreateInspectionStandardConditions">
+      <doc xml:lang="en" title="CreateInspectionStandardConditions"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateInspectionStandardConditions">
+        <doc xml:lang="en" title="CreateInspectionStandardConditions"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/payments" id="CreatePayment">
+      <doc xml:lang="en" title="CreatePayment"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreatePayment">
+        <doc xml:lang="en" title="CreatePayment"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/activities" id="CreateRecordActivities">
+      <doc xml:lang="en" title="CreateRecordActivities"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordActivities">
+        <doc xml:lang="en" title="CreateRecordActivities"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 403 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/addresses" id="CreateRecordAddresses">
+      <doc xml:lang="en" title="CreateRecordAddresses"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordAddresses">
+        <doc xml:lang="en" title="CreateRecordAddresses"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400 401">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/comments" id="CreateRecordComments">
+      <doc xml:lang="en" title="CreateRecordComments"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordComments">
+        <doc xml:lang="en" title="CreateRecordComments"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/conditions" id="CreateRecordConditions">
+      <doc xml:lang="en" title="CreateRecordConditions"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordConditions">
+        <doc xml:lang="en" title="CreateRecordConditions"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts/{contactId}/addresses" id="CreateRecordContactAddresses">
+      <doc xml:lang="en" title="CreateRecordContactAddresses"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="contactId" default="contactId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordContactAddresses">
+        <doc xml:lang="en" title="CreateRecordContactAddresses"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts" id="CreateRecordContacts">
+      <doc xml:lang="en" title="CreateRecordContacts"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordContacts">
+        <doc xml:lang="en" title="CreateRecordContacts"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/fees" id="CreateRecordFees">
+      <doc xml:lang="en" title="CreateRecordFees"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordFees">
+        <doc xml:lang="en" title="CreateRecordFees"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/owners" id="CreateRecordOwners">
+      <doc xml:lang="en" title="CreateRecordOwners"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordOwners">
+        <doc xml:lang="en" title="CreateRecordOwners"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/parcels" id="CreateRecordParcels">
+      <doc xml:lang="en" title="CreateRecordParcels"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordParcels">
+        <doc xml:lang="en" title="CreateRecordParcels"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/partTransaction" id="CreateRecordPartTransaction">
+      <doc xml:lang="en" title="CreateRecordPartTransaction"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="CreateRecordPartTransaction">
+        <doc xml:lang="en" title="CreateRecordPartTransaction"/>
+        <request/>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/professionals" id="CreateRecordProfessionals">
+      <doc xml:lang="en" title="CreateRecordProfessionals"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRecordProfessionals">
+        <doc xml:lang="en" title="CreateRecordProfessionals"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records" id="CreateRecords">
+      <doc xml:lang="en" title="CreateRecords"/>
+      <method name="POST" id="CreateRecords">
+        <doc xml:lang="en" title="CreateRecords"/>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </request>
+        <response status="401 403 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/related" id="CreateRelatedDetailsforRecord">
+      <doc xml:lang="en" title="CreateRelatedDetailsforRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateRelatedDetailsforRecord">
+        <doc xml:lang="en" title="CreateRelatedDetailsforRecord"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/reports/{reportId}" id="CreateReport">
+      <doc xml:lang="en" title="CreateReport"/>
+      <param name="reportId" default="reportId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="CreateReport">
+        <doc xml:lang="en" title="CreateReport"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="401 403 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{ids}" id="DeleteInspections">
+      <doc xml:lang="en" title="DeleteInspections"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteInspections">
+        <doc xml:lang="en" title="DeleteInspections"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{ids}" id="DeleteRecord">
+      <doc xml:lang="en" title="DeleteRecord"/>
+      <param name="ids" type="xs:string" required="false" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRecord">
+        <doc xml:lang="en" title="DeleteRecord"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/comments/{ids}" id="DeleteRecordComments">
+      <doc xml:lang="en" title="DeleteRecordComments"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRecordComments">
+        <doc xml:lang="en" title="DeleteRecordComments"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/owners/{ids}" id="DeleteRecordOwner">
+      <doc xml:lang="en" title="DeleteRecordOwner"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRecordOwner">
+        <doc xml:lang="en" title="DeleteRecordOwner"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/parcels/{ids}" id="DeleteRecordParcels">
+      <doc xml:lang="en" title="DeleteRecordParcels"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRecordParcels">
+        <doc xml:lang="en" title="DeleteRecordParcels"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/professionals/{ids}" id="DeleteRecordProfessionals">
+      <doc xml:lang="en" title="DeleteRecordProfessionals"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRecordProfessionals">
+        <doc xml:lang="en" title="DeleteRecordProfessionals"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/related/{childRecordIds}" id="DeleteRelatedDetailsfromRecord">
+      <doc xml:lang="en" title="DeleteRelatedDetailsfromRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="childRecordIds" default="childRecordIds" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="DeleteRelatedDetailsfromRecord">
+        <doc xml:lang="en" title="DeleteRelatedDetailsfromRecord"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/finalize" id="FinalizeRecord">
+      <doc xml:lang="en" title="FinalizeRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="FinalizeRecord">
+        <doc xml:lang="en" title="FinalizeRecord"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/addresses/{id}" id="GetAddress">
+      <doc xml:lang="en" title="GetAddress"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAddress">
+        <doc xml:lang="en" title="GetAddress"/>
+        <request/>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/addresses/streetDirections" id="GetAddressesStreetDirections">
+      <doc xml:lang="en" title="GetAddressesStreetDirections"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddressesStreetDirections">
+        <doc xml:lang="en" title="GetAllAddressesStreetDirections"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/agencies/{name}" id="GetAgency">
+      <doc xml:lang="en" title="GetAgency"/>
+      <param name="name" default="name" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAgency">
+        <doc xml:lang="en" title="GetAgency"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/agencies/{name}/logo" id="GetAgencyLogo">
+      <doc xml:lang="en" title="GetAgencyLogo"/>
+      <param name="name" default="name" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAgencyLogo">
+        <doc xml:lang="en" title="GetAgencyLogo"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/activities/priorities" id="GetAllActivityPriorities">
+      <doc xml:lang="en" title="GetAllActivityPriorities"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllActivityPriorities">
+        <doc xml:lang="en" title="GetAllActivityPriorities"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/activities/statuses" id="GetAllActivityStatuses">
+      <doc xml:lang="en" title="GetAllActivityStatuses"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllActivityStatuses">
+        <doc xml:lang="en" title="GetAllActivityStatuses"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/activities/types" id="GetAllActivityTypes">
+      <doc xml:lang="en" title="GetAllActivityTypes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="entityType" default="{entityType}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllActivityTypes">
+        <doc xml:lang="en" title="GetAllActivityTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/addresses/states" id="GetAllAddresesStates">
+      <doc xml:lang="en" title="GetAllAddresesStates"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddressesStates">
+        <doc xml:lang="en" title="GetAllAddressesStates"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401 403">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/addresses" id="GetAllAddresses">
+      <doc xml:lang="en" title="GetAllAddresses"/>
+      <param name="streetSuffix" default="{streetSuffix}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetName" default="{streetName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="isPrimary" default="{isPrimary}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="city" default="{city}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetStart" default="{streetStart}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="state" default="{state}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="{direction}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="type" default="{type}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetEnd" default="{streetEnd}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="country" default="{country}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="{id}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="streetSuffixDirection" default="{streetSuffixDirection}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddresses">
+        <doc xml:lang="en" title="GetAllAddresses"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/addresses/streetFractions" id="GetAllAddressesStreetFractions">
+      <doc xml:lang="en" title="GetAllAddressesStreetFractions"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddressesStreetFractions">
+        <doc xml:lang="en" title="GetAllAddressesStreetFractions"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/addresses/unitTypes" id="GetAllAddressesUnitTypes">
+      <doc xml:lang="en" title="GetAllAddressesUnitTypes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAddressesUnitTypes">
+        <doc xml:lang="en" title="GetAllAddressesUnitTypes"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/availableDates" id="GetAllAvailableDatesforInspection">
+      <doc xml:lang="en" title="GetAllAvailableDatesforInspection"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="startDate" default="{startDate}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="typeId" default="{typeId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="recordId" default="{recordId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllAvailableDatesforInspection">
+        <doc xml:lang="en" title="GetAllAvailableDatesforInspection"/>
+        <request/>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/checklists" id="GetAllChecklistsforInspection">
+      <doc xml:lang="en" title="GetAllChecklistsforInspection"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllChecklistsforInspection">
+        <doc xml:lang="en" title="GetAllChecklistsforInspection"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/conditions" id="GetAllConditionsforRecord">
+      <doc xml:lang="en" title="GetAllConditionsforRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllConditionsforRecord">
+        <doc xml:lang="en" title="GetAllConditionsforRecord"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/contacts/types" id="GetAllContactTypes">
+      <doc xml:lang="en" title="GetAllContactTypes"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllContactTypes">
+        <doc xml:lang="en" title="GetAllContactTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/costs/types/{typeName}/items" id="GetAllCostTypeItems">
+      <doc xml:lang="en" title="GetAllCostTypeItems"/>
+      <param name="typeName" default="typeName" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllCostTypeItems">
+        <doc xml:lang="en" title="GetAllCostTypeItems"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/costs/types" id="GetAllCostTypes">
+      <doc xml:lang="en" title="GetAllCostTypes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllCostTypes">
+        <doc xml:lang="en" title="GetAllCostTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/costs/unitTypes" id="GetAllCostUnitTypes">
+      <doc xml:lang="en" title="GetAllCostUnitTypes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllCostUnitTypes">
+        <doc xml:lang="en" title="GetAllCostUnitTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/contacts/{id}/customForms" id="GetAllCustomFormsforContact">
+      <doc xml:lang="en" title="GetAllCustomFormsforContact"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllCustomFormsforContact">
+        <doc xml:lang="en" title="GetAllCustomFormsforContact"/>
+        <request/>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/checklists/{checklistId}/checklistItems/{checklistItemId}/customTables" id="GetAllCustomTablesInspectionCheclistCheckListItems">
+      <doc xml:lang="en" title="GetAllCustomTablesInspectionCheclistCheckListItems"/>
+      <param name="checklistId" default="checklistId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="checklistItemId" default="checklistItemId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllCustomTablesInspectionCheclistCheckListItems">
+        <doc xml:lang="en" title="GetAllCustomTablesInspectionCheclistCheckListItems"/>
+        <request/>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/departments/{id}/staffs" id="GetAllDepartmentStaff">
+      <doc xml:lang="en" title="GetAllDepartmentStaff"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllDepartmentStaff">
+        <doc xml:lang="en" title="GetAllDepartmentStaff"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/departments" id="GetAllDepartments">
+      <doc xml:lang="en" title="GetAllDepartments"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllDepartments">
+        <doc xml:lang="en" title="GetAllDepartments"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/documents/categories" id="GetAllDocumentCategories">
+      <doc xml:lang="en" title="GetAllDocumentCategories"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllDocumentCategories">
+        <doc xml:lang="en" title="GetAllDocumentCategories"/>
+        <request/>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/checklists" id="GetAllInspectionChecklists">
+      <doc xml:lang="en" title="GetAllInspectionChecklists"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspectionChecklists">
+        <doc xml:lang="en" title="GetAllInspectionChecklists"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/grades" id="GetAllInspectionGrades">
+      <doc xml:lang="en" title="GetAllInspectionGrades"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspectionGrades">
+        <doc xml:lang="en" title="GetAllInspectionGrades"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordIds}/inspectionTypes" id="GetAllInspectionTypesforRecord">
+      <doc xml:lang="en" title="GetAllInspectionTypesforRecord"/>
+      <param name="recordIds" default="recordIds" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspectionTypesforRecord">
+        <doc xml:lang="en" title="GetAllInspectionTypesforRecord"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections" id="GetAllInspections">
+      <doc xml:lang="en" title="GetAllInspections"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="scheduledDateFrom" default="{scheduledDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="types" default="{types}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="scheduledDateTo" default="{scheduledDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="districtIds" default="{districtIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="inspectorIds" default="{inspectorIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspections">
+        <doc xml:lang="en" title="GetAllInspections"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections" id="GetAllInspections">
+      <doc xml:lang="en" title="GetAllInspections"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="scheduledDateFrom" default="{scheduledDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="types" default="{types}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="scheduledDateTo" default="{scheduledDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="districtIds" default="{districtIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="inspectorIds" default="{inspectorIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspections">
+        <doc xml:lang="en" title="GetAllInspections"/>
+        <request/>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/inspections" id="GetAllInspectionsforRecord">
+      <doc xml:lang="en" title="GetAllInspectionsforRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspectionsforRecord">
+        <doc xml:lang="en" title="GetAllInspectionsforRecord"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspectors" id="GetAllInspectors">
+      <doc xml:lang="en" title="GetAllInspectors"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="department" default="{department}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllInspectors">
+        <doc xml:lang="en" title="GetAllInspectors"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/civicid/accounts" id="GetAllLinkedAccounts">
+      <doc xml:lang="en" title="GetAllLinkedAccounts"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllLinkedAccounts">
+        <doc xml:lang="en" title="GetAllLinkedAccounts"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/owners" id="GetAllOwners">
+      <doc xml:lang="en" title="GetAllOwners"/>
+      <param name="city" default="{city}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="country" default="{country}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="email" default="{email}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="parcelId" default="{parcelId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lastName" default="{lastName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="firstName" default="{firstName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fullName" default="{fullName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="state" default="{state}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllOwners">
+        <doc xml:lang="en" title="GetAllOwners"/>
+        <request/>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/parcels/{id}/addresses" id="GetAllParcelAddresses">
+      <doc xml:lang="en" title="GetAllParcelAddresses"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllParcelAddresses">
+        <doc xml:lang="en" title="GetAllParcelAddresses"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/parcels/{parcelId}/owners" id="GetAllParcelOwners">
+      <doc xml:lang="en" title="GetAllParcelOwners"/>
+      <param name="parcelId" default="parcelId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllParcelOwners">
+        <doc xml:lang="en" title="GetAllParcelOwners"/>
+        <request/>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/addresses" id="GetAllRecordAddresses">
+      <doc xml:lang="en" title="GetAllRecordAddresses"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="isPrimary" default="{isPrimary}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllRecordAddresses">
+        <doc xml:lang="en" title="GetAllRecordAddresses"/>
+        <request/>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts/{contactId}/addresses" id="GetAllRecordContactsAddresses">
+      <doc xml:lang="en" title="GetAllRecordContactsAddresses"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="contactId" default="contactId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllRecordContactsAddresses">
+        <doc xml:lang="en" title="GetAllRecordContactsAddresses"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/owners" id="GetAllRecordOwners">
+      <doc xml:lang="en" title="GetAllRecordOwners"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllRecordOwners">
+        <doc xml:lang="en" title="GetAllRecordOwners"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/records/types" id="GetAllRecordTypes">
+      <doc xml:lang="en" title="GetAllRecordTypes"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="filterName" default="{filterName}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="isFeeEstimate" default="{isFeeEstimate}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllRecordTypes">
+        <doc xml:lang="en" title="GetAllRecordTypes"/>
+        <request/>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records" id="GetAllRecords">
+      <doc xml:lang="en" title="GetAllRecords"/>
+      <param name="type" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="openDateFrom" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="openDateTo" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="customId" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="module" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="status" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="statusDateFrom" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="statusDateTo" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="assignDateFrom" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="assignDateTo" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completeDateFrom" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completeDateTo" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completeDepartment" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completeStaff" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedDateFrom" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedDateTo" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedDepartment" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedStaff" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllRecords">
+        <doc xml:lang="en" title="GetAllRecords"/>
+        <request/>
+        <response status="400 401 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="text/plain; charset=utf-8"/>
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/reports/categories" id="GetAllReportCategories">
+      <doc xml:lang="en" title="GetAllReportCategories"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllReportCategories">
+        <doc xml:lang="en" title="GetAllReportCategories"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/conditions/statuses" id="GetAllStandardConditionStatuses">
+      <doc xml:lang="en" title="GetAllStandardConditionStatuses"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllStandardConditionStatuses">
+        <doc xml:lang="en" title="GetAllStandardConditionStatuses"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/conditions/types" id="GetAllStandardConditionTypes">
+      <doc xml:lang="en" title="GetAllStandardConditionTypes"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllStandardConditionTypes">
+        <doc xml:lang="en" title="GetAllStandardConditionTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/conditions" id="GetAllStandardConditionsforInspection">
+      <doc xml:lang="en" title="GetAllStandardConditionsforInspection"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllStandardConditionsforInspection">
+        <doc xml:lang="en" title="GetAllStandardConditionsforInspection"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/conditions/priorities" id="GetAllStandardConditonPriorities">
+      <doc xml:lang="en" title="GetAllStandardConditonPriorities"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllStandardConditonPriorities">
+        <doc xml:lang="en" title="GetAllStandardConditonPriorities"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/workflowTasks/{id}/statuses" id="GetAllStatusesforWorkflowTask">
+      <doc xml:lang="en" title="GetAllStatusesforWorkflowTask"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllStatusesforWorkflowTask">
+        <doc xml:lang="en" title="GetAllStatusesforWorkflowTask"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/workflowTasks" id="GetAllWorkflowTasksforRecord">
+      <doc xml:lang="en" title="GetAllWorkflowTasksforRecord"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetAllWorkflowTasksforRecord">
+        <doc xml:lang="en" title="GetAllWorkflowTasksforRecord"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/contacts/{ids}" id="GetContacts">
+      <doc xml:lang="en" title="GetContacts"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetContacts">
+        <doc xml:lang="en" title="GetContacts"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/checklists/statuses" id="GetInspectionCheckListStatuses">
+      <doc xml:lang="en" title="GetInspectionCheckListStatuses"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionCheckListStatuses">
+        <doc xml:lang="en" title="GetInspectionCheckListStatuses"/>
+        <request/>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/checklistsGroups" id="GetInspectionChecklistsGroups">
+      <doc xml:lang="en" title="GetInspectionChecklistsGroups"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionChecklistsGroups">
+        <doc xml:lang="en" title="GetInspectionChecklistsGroups"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/conditions/{id}" id="GetInspectionCondition">
+      <doc xml:lang="en" title="GetInspectionCondition"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionCondition">
+        <doc xml:lang="en" title="GetInspectionCondition"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/grades" id="GetInspectionGrades">
+      <doc xml:lang="en" title="GetInspectionGrades"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionGrades">
+        <doc xml:lang="en" title="GetInspectionGrades"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionIds}/histories" id="GetInspectionHistory">
+      <doc xml:lang="en" title="GetInspectionHistory"/>
+      <param name="inspectionIds" default="inspectionIds" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionHistory">
+        <doc xml:lang="en" title="GetInspectionHistory"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/types" id="GetInspectionTypes">
+      <doc xml:lang="en" title="GetInspectionTypes"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionTypes">
+        <doc xml:lang="en" title="GetInspectionTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{ids}" id="GetInspections">
+      <doc xml:lang="en" title="GetInspections"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspections">
+        <doc xml:lang="en" title="GetInspections"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/checklists/{ids}" id="GetInspectionsCheckListsById">
+      <doc xml:lang="en" title="GetInspectionsCheckListsById"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionsCheckListsById">
+        <doc xml:lang="en" title="GetInspectionsCheckListsById"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/types/{ids}" id="GetInspectionsTypeByIds">
+      <doc xml:lang="en" title="GetInspectionsTypeByIds"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionsTypeByIds">
+        <doc xml:lang="en" title="GetInspectionsTypeByIds"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspectors/{id}" id="GetInspector">
+      <doc xml:lang="en" title="GetInspector"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspector">
+        <doc xml:lang="en" title="GetInspector"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/mine" id="GetMyRecord">
+      <doc xml:lang="en" title="GetMyRecord"/>
+      <param name="modules" default="{modules}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="assignedDateFrom" default="{assignedDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="status" default="{status}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="type" default="{type}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="customId" default="{customId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completedByDepartment" default="{completedByDepartment}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="openedDateTo" default="{openedDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="recordClass" default="{recordClass}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completedDateFrom" default="{completedDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="types" default="{types}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completedByUser" default="{completedByUser}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedByDepartment" default="{closedByDepartment}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="openedDateFrom" default="{openedDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedByUser" default="{closedByUser}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="expand" default="{expand}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="assignedDateTo" default="{assignedDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="module" default="{module}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedDateTo" default="{closedDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="closedDateFrom" default="{closedDateFrom}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="completedDateTo" default="{completedDateTo}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetMyRecord">
+        <doc xml:lang="en" title="GetMyRecord"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/workflowTasks/mine" id="GetMyWorflowTasks">
+      <doc xml:lang="en" title="GetMyWorflowTasks"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetMyWorflowTasks">
+        <doc xml:lang="en" title="GetMyWorflowTasks"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/owners/{id}" id="GetOwner">
+      <doc xml:lang="en" title="GetOwner"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetOwner">
+        <doc xml:lang="en" title="GetOwner"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/parcels/{id}" id="GetParcelById">
+      <doc xml:lang="en" title="GetParcelById"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetParcelById">
+        <doc xml:lang="en" title="GetParcelById"/>
+        <request/>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/professionals/{ids}" id="GetProfessionals">
+      <doc xml:lang="en" title="GetProfessionals"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetProfessionals">
+        <doc xml:lang="en" title="GetProfessionals"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{ids}" id="GetRecord">
+      <doc xml:lang="en" title="GetRecord"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="expand" default="{expand}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecord">
+        <doc xml:lang="en" title="GetRecord"/>
+        <request/>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+          <representation mediaType="text/plain; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/conditions/{id}" id="GetRecordCondition">
+      <doc xml:lang="en" title="GetRecordCondition"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordCondition">
+        <doc xml:lang="en" title="GetRecordCondition"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts" id="GetRecordContacts">
+      <doc xml:lang="en" title="GetRecordContacts"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordContacts">
+        <doc xml:lang="en" title="GetRecordContacts"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/customTables/{tableId}" id="GetRecordCustomTable">
+      <doc xml:lang="en" title="GetRecordCustomTable"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="tableId" default="tableId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordCustomTable">
+        <doc xml:lang="en" title="GetRecordCustomTable"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403 404 500">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/fees" id="GetRecordFees">
+      <doc xml:lang="en" title="GetRecordFees"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="status" default="{status}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordFee">
+        <doc xml:lang="en" title="GetRecordFee"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordIds}/inspectionTypes" id="GetRecordInspectionTypes">
+      <doc xml:lang="en" title="GetRecordInspectionTypes"/>
+      <param name="recordIds" default="recordIds" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordInspectionTypes">
+        <doc xml:lang="en" title="GetRecordInspectionTypes"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/parcels" id="GetRecordParcels">
+      <doc xml:lang="en" title="GetRecordParcels"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordParcels">
+        <doc xml:lang="en" title="GetRecordParcels"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/professionals" id="GetRecordProfessionals">
+      <doc xml:lang="en" title="GetRecordProfessionals"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordProfessionals">
+        <doc xml:lang="en" title="GetRecordProfessionals"/>
+        <request/>
+        <response status="400 401">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/workflowTasks/{id}" id="GetRecordWorkflowTask">
+      <doc xml:lang="en" title="GetRecordWorkflowTask"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetRecordWorkflowTask">
+        <doc xml:lang="en" title="GetRecordWorkflowTask"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/drillDowns/{drillId}" id="GetSettingsDrilldown">
+      <doc xml:lang="en" title="GetSettingsDrilldown"/>
+      <param name="drillId" default="drillId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="parentValue" default="{parentValue}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetSettingsDrilldown">
+        <doc xml:lang="en" title="GetSettingsDrilldown"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/timeAccounting/groups" id="GetSettingsTimeAccountinGroups">
+      <doc xml:lang="en" title="GetSettingsTimeAccountinGroups"/>
+      <param name="userIds" default="{userIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetSettingsTimeAccountinGroups">
+        <doc xml:lang="en" title="GetSettingsTimeAccountinGroups"/>
+        <request/>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/timeAccounting/ types" id="GetSettingsTimeAccountingTypes">
+      <doc xml:lang="en" title="GetSettingsTimeAccountingTypes"/>
+      <param name="groupId" default="{groupId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="userIds" default="{userIds}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="recordType" default="{recordType}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetSettingsTimeAccountingTypes">
+        <doc xml:lang="en" title="GetSettingsTimeAccountingTypes"/>
+        <request/>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="text/plain; charset=utf-8"/>
+        </response>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/timeAccounting" id="GetTimeAccounting">
+      <doc xml:lang="en" title="GetTimeAccounting"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetTimeAccounting">
+        <doc xml:lang="en" title="GetTimeAccounting"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/civicid/accounts/" id="GetUserAccount">
+      <doc xml:lang="en" title="GetUserAccount"/>
+      <param name="id" default="{id}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetUserAccount">
+        <doc xml:lang="en" title="GetUserAccount"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/describe/create" id="RecordCreateDescribe">
+      <doc xml:lang="en" title="RecordCreateDescribe"/>
+      <param name="type" default="{type}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="RecordCreateDescribe">
+        <doc xml:lang="en" title="RecordCreateDescribe"/>
+        <request/>
+        <response status="400 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/fees/estimate" id="RecordFeeEstimate">
+      <doc xml:lang="en" title="RecordFeeEstimate"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="RecordFeeEstimate">
+        <doc xml:lang="en" title="RecordFeeEstimate"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/initialize" id="RecordInitialize">
+      <doc xml:lang="en" title="RecordInitialize"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="isFeeEstimate" default="{isFeeEstimate}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="RecordInitialize">
+        <doc xml:lang="en" title="RecordInitialize"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 403">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/civicid/citizenaccess/register" id="RegisterUser">
+      <doc xml:lang="en" title="RegisterUser"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="RegisterUser">
+        <doc xml:lang="en" title="RegisterUser"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="401 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/schedule" id="ScheduleInspection">
+      <doc xml:lang="en" title="ScheduleInspection"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="ScheduleInspection">
+        <doc xml:lang="en" title="ScheduleInspection"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400 403 500">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="204">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/agencies" id="SearchAgencies">
+      <doc xml:lang="en" title="SearchAgencies"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchAgencies">
+        <doc xml:lang="en" title="SearchAgencies"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/ global" id="SearchAll">
+      <doc xml:lang="en" title="SearchAll"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="query" default="{query}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="type" default="{type}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="modules" default="{modules}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default=" {limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="sort" default="{sort}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="{direction}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="SearchAll">
+        <doc xml:lang="en" title="SearchAll"/>
+        <request/>
+      </method>
+    </resource>
+    <resource path="v4/search/contacts" id="SearchContacts">
+      <doc xml:lang="en" title="SearchContacts"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchContacts">
+        <doc xml:lang="en" title="SearchContacts"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/costs" id="SearchCosts">
+      <doc xml:lang="en" title="SearchCosts"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchCosts">
+        <doc xml:lang="en" title="SearchCosts"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/inspections" id="SearchInspections">
+      <doc xml:lang="en" title="SearchInspections"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="hasTotal" default="{hasTotal}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="expand" default="{expand}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchInspections">
+        <doc xml:lang="en" title="SearchInspections"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/owners" id="SearchOwners">
+      <doc xml:lang="en" title="SearchOwners"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchOwners">
+        <doc xml:lang="en" title="SearchOwners"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/parcels" id="SearchParcels">
+      <doc xml:lang="en" title="SearchParcels"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="expand" default="{expand}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchParcels">
+        <doc xml:lang="en" title="SearchParcels"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/professionals" id="SearchProfessionals">
+      <doc xml:lang="en" title="SearchProfessionals"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchProfessionals">
+        <doc xml:lang="en" title="SearchProfessionals"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/records" id="SearchRecords">
+      <doc xml:lang="en" title="SearchRecords"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="sort" default="{sort}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="{direction}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="expand" default="{expand}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchRecords">
+        <doc xml:lang="en" title="SearchRecords"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400 404 500">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/search/addresses" id="Searchaddresses">
+      <doc xml:lang="en" title="Searchaddresses"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="offset" default="{offset}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="{limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="SearchAddresses">
+        <doc xml:lang="en" title="SearchAddresses"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/addresses/countries" id="SettingAddressCountries">
+      <doc xml:lang="en" title="SettingAddressCountries"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="SettingsAddressCountries">
+        <doc xml:lang="en" title="SettingsAddressCountries"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/contacts/{id}" id="UpdateContact">
+      <doc xml:lang="en" title="UpdateContact"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateContact">
+        <doc xml:lang="en" title="UpdateContact"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{id}" id="UpdateInspection">
+      <doc xml:lang="en" title="UpdateInspection"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateInspection">
+        <doc xml:lang="en" title="UpdateInspection"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/inspections/{inspectionId}/conditions/{id}" id="UpdateInspectionCondition">
+      <doc xml:lang="en" title="UpdateInspectionCondition"/>
+      <param name="inspectionId" default="inspectionId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateInspectionCondition">
+        <doc xml:lang="en" title="UpdateInspectionCondition"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{id}" id="UpdateRecord">
+      <doc xml:lang="en" title="UpdateRecord"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecord">
+        <doc xml:lang="en" title="UpdateRecord"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="401 404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="403">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/activities/{id}" id="UpdateRecordActivity">
+      <doc xml:lang="en" title="UpdateRecordActivity"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordActivity">
+        <doc xml:lang="en" title="UpdateRecordActivity"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/addresses/{id}" id="UpdateRecordAddress">
+      <doc xml:lang="en" title="UpdateRecordAddress"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordAddress">
+        <doc xml:lang="en" title="UpdateRecordAddress"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/addresses/{id}" id="UpdateRecordAddresses">
+      <doc xml:lang="en" title="UpdateRecordAddresses"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="UpdateRecordAddresses">
+        <doc xml:lang="en" title="UpdateRecordAddresses"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/comments/{id}" id="UpdateRecordComment">
+      <doc xml:lang="en" title="UpdateRecordComment"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordComment">
+        <doc xml:lang="en" title="UpdateRecordComment"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/conditions/{id}" id="UpdateRecordCondition">
+      <doc xml:lang="en" title="UpdateRecordCondition"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordCondition">
+        <doc xml:lang="en" title="UpdateRecordCondition"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts/{id}" id="UpdateRecordContact">
+      <doc xml:lang="en" title="UpdateRecordContact"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordContact">
+        <doc xml:lang="en" title="UpdateRecordContact"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/contacts/{contactId}/addresses/{id}" id="UpdateRecordContactAddress">
+      <doc xml:lang="en" title="UpdateRecordContactAddress"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="contactId" default="contactId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordContactAddress">
+        <doc xml:lang="en" title="UpdateRecordContactAddress"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/owners/{id}" id="UpdateRecordOwner">
+      <doc xml:lang="en" title="UpdateRecordOwner"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordOwner">
+        <doc xml:lang="en" title="UpdateRecordOwner"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400 404">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/parcels/{id}" id="UpdateRecordParcel">
+      <doc xml:lang="en" title="UpdateRecordParcel"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="id" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordParcel">
+        <doc xml:lang="en" title="UpdateRecordParcel"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/records/{recordId}/professionals/{ids}" id="UpdateRecordProfessionals">
+      <doc xml:lang="en" title="UpdateRecordProfessionals"/>
+      <param name="recordId" default="recordId" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ids" default="ids" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="UpdateRecordProfessionals">
+        <doc xml:lang="en" title="UpdateRecordProfessionals"/>
+        <request>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="404">
+          <representation mediaType="application/json; charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v4/settings/inspections/statuses" id="GetInspectionStatues">
+      <doc xml:lang="en" title="GetInspectionStatues"/>
+      <param name="group" default="{group}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="fields" default="{fields}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="lang" default="{lang}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="token" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GetInspectionStatues">
+        <doc xml:lang="en" title="GetInspectionStatues"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>${AAEndPointUrl}</con:endpoint></con:endpoints></con:interface>

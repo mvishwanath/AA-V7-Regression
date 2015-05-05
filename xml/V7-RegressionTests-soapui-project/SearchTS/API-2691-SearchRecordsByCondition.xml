@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="931405e0-04a6-4e1c-98f4-8494a5b77095" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="API-2691-SearchRecordsByCondition" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="931405e0-04a6-4e1c-98f4-8494a5b77095fileName">API-2691-SearchRecordsByCondition</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="d400140b-08b7-4bc8-a8c7-f8ec99e2f6b3"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordConditions" id="66c28676-a300-485f-ae70-f35b21f8b144"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/conditions" methodName="CreateRecordConditions" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordConditions" id="5c29801c-8c83-44fe-bd30-a75096007d4b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[   {
+      "statusType": "Applied",
+      "appliedDate": "2015-02-09 00:00:00",
+      "shortComments": "Property and/or structure is noted as Historic.  Approval from the Historic Commission is required prior to Issuing the permit.",
+      "name": "Historic Commission Approval Required",
+      "longComments": "Exterior Repairs, alterations and additions necessary for the preservation, restoration, rehabilitation or continued use of a building or structure may not be made without the approval of the City驴s Historic Commission.  Please contact the Planning Dept. for more information",
+     
+      "serviceProviderCode": "${#Project#AAAgency}",
+      "resAdditionalInformationPlainText": "",
+      "type":       {
+         "value": "Building Plans",
+         "text": "Building Plans"
+      },
+      "group":       {
+         "value": "Permits",
+         "text": "Permits"
+      },
+      "status":       {
+         "value": "Applied\u0002Applied",
+         "text": "Applied(Applied)"
+      },
+      "severity":       {
+         "value": "Notice",
+         "text": "Notice"
+      },
+      "activeStatus":       {
+         "value": "A",
+         "text": "Active"
+      },
+      "inheritable":       {
+         "value": "N",
+         "text": "No"
+      },
+      "appliedbyUser":       {
+         "value": "ADMIN",
+         "text": "Accela Administrator"
+      },
+      "displayNoticeInAgency": true,
+      "isIncludeNameInNotice": true,
+      "isIncludeShortCommentsInNotice": true,
+      "displayNoticeInCitizens": true,
+      "displayNoticeInCitizensFee": false,
+      "recordId":       {
+         "id": "${ReadSecondRec#Recid2}",
+         "serviceProviderCode": "${#Project#AAAgency}",
+         "value": "${ReadSecondRec#CustId}"
+      }
+   }]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00094/conditions</con:originalUri><con:assertion type="JsonPath Match" id="d63c9bce-116a-48bd-879f-b24c7fc64d01" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="768ea660-3a1b-46c0-89c6-d082147da433" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="49eadadb-9d41-4274-9096-710e02615669" name="Check for existence of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRecordConditionId" id="21c1ed9f-eff7-43c9-a9bc-4169300f4228"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>data/tempRecordConditionId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecCndId</con:name><con:value>${CreateRecordConditions#Response#$.result[0].id}</con:value></con:property><con:property><con:name>Group</con:name><con:value>Building</con:value></con:property><con:property><con:name>type</con:name><con:value>${CreateRecordConditions#Request#$[0].type.value}</con:value></con:property><con:property><con:name>status</con:name><con:value>${CreateRecordConditions#Request#$[0].status.value}</con:value></con:property><con:property><con:name>ActiveStatus</con:name><con:value>${CreateRecordConditions#Request#$[0].activeStatus.value}</con:value></con:property><con:property><con:name>Name</con:name><con:value>Historic Commission Approval Required</con:value></con:property><con:property><con:name>Priority</con:name><con:value>Notice</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-All" id="73dfa56f-c848-41a5-b656-7d47e3abb637"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-All" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{"condition":{"name": "${WriteRecordConditionId#Name}"}
+}
+ </con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="87bbd8d9-0778-4ff8-9031-41b555ce9b49" name="Match content of [name]"><con:configuration><path>$.result[0].conditions[0].name</path><content>${WriteRecordConditionId#Name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=" "/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions, conditionOfApprovals"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-Name" id="4af7e91e-248c-4799-b20e-5d398cb9b152"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-Name" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{"condition":{"name": "${WriteRecordConditionId#Name}"}
+}
+ </con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="87bbd8d9-0778-4ff8-9031-41b555ce9b49" name="Match content of [name]"><con:configuration><path>$.result[0].conditions[0].name</path><content>${WriteRecordConditionId#Name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value="1"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions, conditionOfApprovals"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-Group" id="6d3ee3df-1e0f-44ff-907b-90fe81035ea2"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-Group" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+	"group":"${WriteRecordConditionId#Group}"
+	}</con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="5120e265-8b10-49cf-b868-5b2ffd452205" name="Match content of [group]"><con:configuration><path>$.result[0].type.group</path><content>${WriteRecordConditionId#Group}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value="5"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-Type" id="95e51988-b2be-48d6-9662-463b15a81637"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-Type" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+	"type":
+	{
+	  "text":"${WriteRecordConditionId#type}",
+	  "value":"${WriteRecordConditionId#type}"
+	}
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="5120e265-8b10-49cf-b868-5b2ffd452205" name="Match content of [group]"><con:configuration><path>$.result[0].type.group</path><content>${WriteRecordConditionId#Group}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=" "/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-Serverity" id="be1a7fcb-cef7-43ee-bf61-c3db473fa85c"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-Serverity" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+"condition": {
+    "severity":"${WriteRecordConditionId#Priority}"
+}	
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c5941399-4e09-454d-be92-5deb01ec5f10" name="Match content of [value]"><con:configuration><path>$.result[0].conditions[0].severity.value</path><content>${WriteRecordConditionId#Priority}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=" "/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-ActiveStatus" id="c96c8c1f-32f8-4b29-9988-5412807c5311"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-ActiveStatus" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+"condition": {
+    "severity":"${WriteRecordConditionId#Priority}"
+},
+"activeStatus": {
+            "value": "Active",
+            "text": "A"
+        }	
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c5941399-4e09-454d-be92-5deb01ec5f10" name="Match content of [value]"><con:configuration><path>$.result[0].conditions[0].severity.value</path><content>${WriteRecordConditionId#Priority}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="22b747cb-c939-4d3e-b053-66185178114e" name="Match content of [value]"><con:configuration><path>$.result[0].conditions[0].activeStatus.value</path><content>A</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="68253d22-2e4c-4584-87b1-40c05d327fa0" name="Match content of [text]"><con:configuration><path>$.result[0].conditions[0].activeStatus.text</path><content>Active</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value="1"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-NameSServerity" id="3c8198db-9093-4735-a5e3-22fdb5411112"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-NameSServerity" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{"condition":{"name": "${WriteRecordConditionId#Name}"},
+"condition": {
+    "severity":"${WriteRecordConditionId#Priority}"
+}	
+}
+ </con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="87bbd8d9-0778-4ff8-9031-41b555ce9b49" name="Match content of [name]"><con:configuration><path>$.result[0].conditions[0].name</path><content>Updated Historic Commission Approval Required</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="5771901c-75f4-421d-ac32-52084cfc3c77" name="Match content of [value]"><con:configuration><path>$.result[0].conditions[0].severity.value</path><content>Notice</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value="1"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="API-2691-SearchRecordsByCondition-NoCondition" id="b590adeb-d8a6-4560-9f86-221c2720e912"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/search/records" methodName="SearchRecordsByCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="API-2691-SearchRecordsByCondition-NoCondition" id="80f61a11-ec2b-4032-92d1-ad9ef3259106" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+}
+ </con:request><con:originalUri>http://220.232.135.196/apis/v4/search/records</con:originalUri><con:assertion type="JsonPath Match" id="76930e5d-c72b-435d-a525-b021007fdaa3" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=" "/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value="conditions"/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>limit</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>4af7e91e-248c-4799-b20e-5d398cb9b152</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>73dfa56f-c848-41a5-b656-7d47e3abb637</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

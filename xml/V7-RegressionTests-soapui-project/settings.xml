@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default environment" name="V7-AAREST-RegressionTests" resourceRoot="${projectDir}" soapui-version="6.0.0" id="8fd96c99-df49-494d-ad0a-c7aba4b7bb82" scriptLibrary="" xmlns:con="http://eviware.com/soapui/config"><con:description>AA 7.X version  APIs  Regression Tests</con:description><con:settings><con:setting id="8fd96c99-df49-494d-ad0a-c7aba4b7bb82fileName">7.3.3.4-AAREST-ShortRegression-soapui-project</con:setting><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default environment"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="RecordsTS-AgencyUser"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Enable UI" value="true"/>
+  <con:entry key="Save Project" value="true"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Open Report" value="true"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Add Settings" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style HTML Report"/>
+</xml-fragment>]]></con:setting><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">false</con:setting><con:setting id="GeneratableJUnitReport@Style">Single Page (Print)</con:setting><con:setting id="GeneratableJUnitReport@Folder">/Users/mvishwanath/Documents/Accela-Radhe/RuningItems</con:setting></con:settings><con:requirements/><con:properties><con:property><con:name>SERVICE_ENDPOINT</con:name><con:value>${AAEndPointUrlAuth}</con:value></con:property><con:property><con:name>Authorization</con:name><con:value/></con:property><con:property><con:name>CTZAAUserName</con:name><con:value>${CTZUserName}</con:value></con:property><con:property><con:name>CTZAAUserPassword</con:name><con:value>${CTZPassword}</con:value></con:property><con:property><con:name>AAEndpointUrl</con:name><con:value>${AAEndPointUrl}</con:value></con:property><con:property><con:name>AAUserName</con:name><con:value>${AAUserName}</con:value></con:property><con:property><con:name>AAPassword</con:name><con:value>${AAPassword}</con:value></con:property><con:property><con:name>Lang</con:name><con:value>en_US</con:value></con:property><con:property><con:name>AAAgency</con:name><con:value>${AAAgency}</con:value></con:property><con:property><con:name>RecordsLimit</con:name><con:value>10</con:value></con:property><con:property><con:name>RecordsFileds</con:name><con:value/></con:property><con:property><con:name>RecordsOffset</con:name><con:value>1</con:value></con:property><con:property><con:name>parcelNumber</con:name><con:value>100100100</con:value></con:property><con:property><con:name>AAEndPointUrlAuth</con:name><con:value>${AAEndPointUrlAuth}</con:value></con:property><con:property><con:name>AAAccessToken</con:name><con:value>20234189080417605220398131705289596120661353381901303086395512356612277403196666688436700016245963014648664776010786295952781147</con:value></con:property><con:property><con:name>tokenpp</con:name><con:value>11</con:value></con:property><con:property><con:name>CTZAAAccessToken</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:authRepository/><xml-fragment><con:xmlTemplates xsi:nil="true" id="37076c00-7df6-4311-bef9-e0ba7d6fab15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:parameters/><con:resource name="CreateReports" path="/v4/reports/{reportId}" id="68db6008-edc8-459c-9921-9135d67cee4d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="68db6008-edc8-459c-9921-9135d67cee4dfileName">CreateReports</con:setting></con:settings><con:parameters><con:parameter><con:name>reportId</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/></con:parameter><con:parameter><con:name>module</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="CreateReports" method="POST" id="2037cb92-6d77-4be2-bf69-36c3f7785dac"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/plain; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/octet-stream</con:mediaType><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false" id="cd829388-27d1-4372-87b4-625475341d43"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#Project#Authorization}"/>
+  &lt;con:entry key="x-accela-appid" value="${#Project#x-accela-appid}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+            "parameters": {
+            "RECORD_MODULE": "Building"
+            },
+            "entityId": "15CAP-00000-00014,14CAP-00000-00380",
+            "entityType": "multi_record"
+            }</con:request><con:originalUri>https://apps-apis.dev.accela.com/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="module" value="Building"/>
+  <con:entry key="reportId" value="1000174"/>
+</con:parameters><con:parameterOrder><con:entry>reportId</con:entry><con:entry>module</con:entry></con:parameterOrder></con:request></con:method></con:resource></xml-fragment></con:soapui-project>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="e69ece63-d57c-4765-a100-9f4168b2562b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordAddress" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0f4096d7-0496-4446-a977-72cdc3beac90fileName">UpdateRecordAddress</con:setting><con:setting id="e69ece63-d57c-4765-a100-9f4168b2562bfileName">UpdateRecordAddress</con:setting></con:settings><con:testStep type="datasource" name="GetRecordAddressId" id="b8e97165-6249-4361-a0db-c88107ee40f0"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempAddressId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordAddressId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadRecordsData" id="020474a1-7482-4fd7-be6a-9e3fce9774ac"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>Cp1252</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordId</con:property><con:property>customerId</con:property><con:property>Desc</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordAddress" id="a3623eff-e909-498c-b9c6-069e38c34b40"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/addresses/{id}" methodName="UpdateRecordAddress" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordAddress" id="8000b861-d4c2-4923-8568-9e8359851c1b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+        "streetStart": 1111111,
+        "streetEnd": 2222222,
+        "levelPrefix": "levelPrefix",
+        "levelStart": "st",
+        "levelEnd": "lve",
+        "addressLine1": "nanshan",
+        "addressLine2": "xili",
+        "houseAlphaStart": "alphaStart",
+        "houseAlphaEnd": "alphaEnd",
+        "xCoordinate": 84,
+        "yCoordinate": 152,
+        "secondaryStreetNumber": 2222,
+        "streetName": "S360 ROAD",
+        "postalCode": "94568",
+        "unitEnd": "uEnd",
+        "unitStart": "uStart",
+        "city": "Changsha",
+        "inspectionDistrict": "Shenz",
+        "inspectionDistrictPrefix": "insp",
+        "neighberhoodPrefix": "nebhd_pre",
+        "description": "Updated Description",
+        "streetPrefix": "pre",
+        "neighborhood": "nebhd",
+        "streetAddress": "langshan lukou",
+        "addressTypeFlag": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "country": {
+            "value": "CN",
+            "text": "China"
+        },
+        "houseFractionStart": {
+            "value": "1/2",
+            "text": "1/2"
+        },
+        "houseFractionEnd": {
+            "value": "1/4",
+            "text": "1/4"
+        },
+        "primary": {
+            "value": "Y",
+            "text": "Yes"
+        },
+        "status": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "state": {
+            "value": "GA",
+            "text": "GA"
+        },
+        "streetSuffix": {
+            "value": "BLVD",
+            "text": "BLVD"
+        }
+    }</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00094/addresses/20100206</con:originalUri><con:assertion type="JsonPath Match" id="a9c2a5ca-7f7b-4f69-8ce6-a98efd3aab65" name="Match content of [description]"><con:configuration><path>$.result.description</path><content>Updated Description</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="10bc95d0-e744-4d8e-9b1f-56b84ac711b5" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="8eeb4f31-cb0a-46d9-899a-911376189457" name="Match content of [id]"><con:configuration><path>$.result.recordId.id</path><content>${ReadRecordsData#RecordId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="aa2cb41d-cde1-48a6-a603-321f77e7b746" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.recordId.serviceProviderCode</path><content>${AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="20f7eeb3-7624-41bf-a6c0-3fa150be06ad" name="Match content of [id]"><con:configuration><path>$.result.id</path><content>${GetRecordAddressId#RecordAddressId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadRecordsData#RecordId}"/>
+  <con:entry key="id" value="${GetRecordAddressId#RecordAddressId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>id</con:entry><con:entry>lang</con:entry><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

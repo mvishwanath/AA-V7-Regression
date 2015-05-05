@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="8c98ee4e-daef-41ce-9c27-fe9643787309" name="CitizenAccess-TS" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8c98ee4e-daef-41ce-9c27-fe9643787309fileName">CitizenAccess-TS</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordCustomTables" searchProperties="true" id="53cd0e79-b3b8-4aeb-83a2-0671d96ea7c7" xmlns:con="http://eviware.com/soapui/config"><con:description>TestCase generated for REST Resource [UpdateRecordCustomTables] located at [/v4/records/{recordId}/customTables]</con:description><con:settings><con:setting id="628326f5-bf6e-4d04-9eb0-23a5d708927cfileName">UpdateRecordCustomTables-TestCase</con:setting><con:setting id="53cd0e79-b3b8-4aeb-83a2-0671d96ea7c7fileName">UpdateRecordCustomTables</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="8b259889-44c7-428e-b75e-5b4d900e3e6a"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../testdata/CustomTablesForRecordId.txt</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordCustomTables" id="dcb25312-0ec4-4aba-9877-c75a7cb5b6b1"><con:settings/><con:config service="RecordsCustomTables" resourcePath="/v4/records/{recordId}/customTables" methodName="UpdateRecordCustomTables" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordCustomTables" mediaType="application/json" postQueryString="false" id="643441be-2a57-4eb3-abe4-cfda2344cda6"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>[
+      {"id": "LIC_CON_LIC-HOURS.cOF.cOPERATION"},
+            {
+         "id": "LIC_CON_LIC-BOND.cINFORMATION",
+         "rows":          [
+                        {
+               "id": "2",
+               "fields":                {
+                  "Bond Expiration Date": "2015-02-11",
+                  "Bond Effective Date": "2015-02-09",
+                  "Bond Number": "234",
+                  "Bond Status": "Inactive",
+                  "Bond Type": "Secondary",
+                  "Bonding Company Name": "456",
+                  "Bond Amount": "12",
+                  "Bond Comments": "Speeling"
+               },
+               "action":"update"
+            },
+                        {
+               "id": "1",
+               "fields":                {
+                  "Bond Expiration Date": "2015-02-10",
+                  "Bond Effective Date": "2015-02-02",
+                  "Bond Number": "123",
+                  "Bond Status": "Active",
+                  "Bond Type": "Surety",
+                  "Bonding Company Name": "123",
+                  "Bond Amount": "321",
+                  "Bond Comments": "Comments"
+               },
+               "action":"update"
+            }
+         ]
+      }
+   ]</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records/15CAP-00000-00014/customTables</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="d4bc24d1-c59d-4df5-be43-8b7d62ba23fa"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="3fb24ebc-f91d-4c15-8ab4-c45d1659a68f" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="0e8b1303-7e36-4c25-b022-16940328fee2" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="de403cd5-9729-4983-94b1-6259f55ad760" name="Match content of [isSuccess]"><con:configuration><path>$.result[1].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="50cdc825-da76-455a-b9d8-5c40a38fc2e4" name="Match content of [id]"><con:configuration><path>$.result[0].id</path><content>LIC_CON_LIC-HOURS.cOF.cOPERATION</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>8b259889-44c7-428e-b75e-5b4d900e3e6a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

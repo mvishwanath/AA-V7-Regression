@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="07ad9709-9f86-49ea-b895-ab6c8f06881b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordContacts" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="20e0763c-0090-43a2-99d5-225a64ba4503fileName">CreateRecordContacts</con:setting><con:setting id="07ad9709-9f86-49ea-b895-ab6c8f06881bfileName">CreateRecordContacts</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="60623180-cdd6-4caf-8c48-b1226c4e09f6"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordContacts" id="530d3460-ca04-4be7-b7f0-2ea0277c122b"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/contacts" methodName="CreateRecordContacts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordContacts" id="e32801e9-4523-4dcc-8c86-2bec2a9d6299" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[{
+   "comment": "API Regression Test ",
+   "fullName": "FirstName99, LastName99",
+   "startDate": "2013-12-08T16:00:00Z",
+   "middleName": "ttt",
+   "postOfficeBox": "123123123",
+   "birthDate": "2013-12-08T16:00:00Z",
+   "endDate": "2013-12-08T16:00:00Z",
+   "firstName": "FirstName99",
+   "lastName": "LastName99",
+   "email": "kanssa008@163.com3",
+   "title": "Tony's Individual4",
+   "socialSecurityNumber": "aA1-23-21aa",
+   "recordId":    {
+      "serviceProviderCode": "${#Project#AAAgency}",
+      "id": "${ReadSecondRec#Recid2}",
+      "trackingId": 0
+   },
+   "typeFlag": "individual",
+   "address":    {
+      "addressLine1": "1111",
+      "addressLine2": "12312312312312",
+      "addressLine3": "123123",
+      "city": "2222",
+      "zip": "AS12213"
+   },
+   "suffix": "123123",
+   "phoneNumber1": "33333333333",
+   "phoneNumber2": "12312312312",
+   "phoneNumber3": "12312312312",
+   "faxNumber": "12313123123",
+   "primary": "Y",
+   "id": "",
+   "type":    {
+      "value": "ACA-Contact",
+      "text": "ACA-Contact"
+   }
+}]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00065/contacts</con:originalUri><con:assertion type="JsonPath Match" id="cc1b7632-57a9-4ea4-ae63-d4da57f3173d" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="9e06336b-5c35-4a37-9b05-66260200727b" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="612544b6-605e-4640-91bc-ec60554025e2" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="3a00b18e-6ed2-485c-838a-19af576c9146" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,404,500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteContactId" id="829061ec-b59c-4381-9fd3-7fb24fd7f612"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/RecordContactId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>ContactId</con:name><con:value>${CreateRecordContacts#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>f0155d87-1bc5-4b10-bfff-621f15ced421</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

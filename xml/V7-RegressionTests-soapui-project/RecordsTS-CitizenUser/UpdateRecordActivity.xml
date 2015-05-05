@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1d153154-624c-4137-b4f7-f61fe7c2cc0c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordActivity" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="212fcf97-a259-470b-93dd-96f2cc71cbb4fileName">UpdateRecordActivity</con:setting><con:setting id="db900b7b-309d-4de1-b603-02f0ed2e1683fileName">UpdateRecordActivity</con:setting><con:setting id="5e45863e-c0fa-4651-b099-bbc31071c3fbfileName">UpdateRecordActivity</con:setting><con:setting id="1d153154-624c-4137-b4f7-f61fe7c2cc0cfileName">UpdateRecordActivity</con:setting></con:settings><con:testStep type="datasource" name="ReadRecordActivityId" id="a9847947-224d-40e2-a7fb-a2e557da3975"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/temprecordactivityId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>activityId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadSecondRec" id="2e827636-f9d8-4860-a684-6a1358d56c2c"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordActivity" id="8340432b-34ac-436f-85b2-fa3e044c6f03"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/activities/{id}" methodName="UpdateRecordActivity" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordActivity" id="b993a0be-7985-49aa-ac00-bd251a50857c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+		"type": 
+		{
+			"value":""
+		},
+		"name": "Malyala Vishwanath",
+		"description": "Value for Description",
+		"assignedDepartment": 
+		{
+			"value":"BPTDEV"
+		},
+		"assignedUser": 
+		{
+			"value":"ADMIN"
+		},
+		"startDate": "03/07/2015",
+		"dueDate": "04/07/2015",
+          "activityStatus": { "value": "NotStarted"},
+		"priority": 
+		{
+			"value":"High"
+		}
+	}</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00102/activities/5585</con:originalUri><con:assertion type="JsonPath Match" id="d2a0af29-eb0d-4a8e-96c0-759561e8ec3d" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7215bb32-bfcb-47b9-b71f-ce9b0c6f195f" name="Match content of [isSuccess]"><con:configuration><path>$.result.isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="6a176d14-ecbb-48e0-ae3d-4337489cbce9" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="id" value="5666"/>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>id</con:entry><con:entry>fields</con:entry><con:entry>lang</con:entry><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>813cd8bd-301a-4904-b5b6-10d70b476d78</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7d4b7aa0-9f45-4b44-952f-d2e73777d4fc</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2ff2a903-0806-4364-9a80-3b58f559c87f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

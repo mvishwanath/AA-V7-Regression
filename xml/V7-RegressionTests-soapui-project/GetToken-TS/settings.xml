@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite name="GetTokenTS" id="695a847a-c669-4413-9a30-e7c24e702d32" xmlns:con="http://eviware.com/soapui/config"><con:description>TestSuite generated for REST Service [GetToken]</con:description><con:settings><con:setting id="695a847a-c669-4413-9a30-e7c24e702d32fileName">GetToken-TS</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

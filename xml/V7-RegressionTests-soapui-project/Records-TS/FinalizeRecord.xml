@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4265c0de-b27f-40d6-b602-1d24a8c15f65" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FinalizeRecord" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="70117611-0fed-415f-84e0-ebce2fda582afileName">FinalizeRecord</con:setting><con:setting id="4265c0de-b27f-40d6-b602-1d24a8c15f65fileName">FinalizeRecord</con:setting></con:settings><con:testStep type="datasource" name="GetIntialZedRecId" id="97da9d16-f9a8-4d79-acbd-ebdd478537c1"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempIntialIzedRecId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>recId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadCreateRecordRecordTypeData" id="bf348097-fcbb-4d23-9993-7d218875819d"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../testdata/CreateRecordRecordType.txt</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>false</quotedValues></con:configuration></con:dataSource><con:property>Module</con:property><con:property>Group</con:property><con:property>Type</con:property><con:property>SubType</con:property><con:property>Category</con:property><con:property>Value</con:property><con:startRow/><con:endRow/><con:trimValues>false</con:trimValues><con:entitizeValues>false</con:entitizeValues><con:restartOnRun>true</con:restartOnRun><con:expandProperties>false</con:expandProperties></con:config></con:testStep><con:testStep type="restrequest" name="FinalizeRecord" id="68cfa406-dd81-4e76-8050-438a446be641"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/finalize" methodName="FinalizeRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="FinalizeRecord" id="d622590b-e792-42d4-b56e-6cca045ece93" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="x-accela-environment" value="${#Project#CNSTEnv}"/>
+  &lt;con:entry key="x-accela-agency" value="${#Project#CNSTAgency}"/>
+  &lt;con:entry key="x-accela-appid" value="${#Project#AppIdAGY}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+      "type":          {
+      	  "module": "${ReadCreateRecordRecordTypeData#Module}",
+            "group": "${ReadCreateRecordRecordTypeData#Group}",
+            "type": "${ReadCreateRecordRecordTypeData#Type}",
+            "subType": "${ReadCreateRecordRecordTypeData#SubType}",
+            "category": "${ReadCreateRecordRecordTypeData#Category}",
+            "value": "${ReadCreateRecordRecordTypeData#Value}"
+         },
+         "description":"Building/Residential/AAREST-API-TEST/APPLICATION-1 API Regression Test Partial Record 1",
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": "100000.99",
+      "undistributedCost": "10000.99",
+      "initiatedProduct": "AV360",
+      "jobValue": 125.88,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 45,
+      "numberOfBuildings": 45,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 10000.88,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": false
+}}
+</con:request><con:originalUri>https://apis.accela.com/v4/records/BPTDEV-15EST-00000-00039/finalize</con:originalUri><con:assertion type="JsonPath Existence Match" id="1f02d16a-17d1-4820-8c57-3ef65ec4539a" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="81c3da29-fb26-4124-b91e-fb67295c8d4b" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="da20a561-54a5-45e8-ad88-a20b7a9e7f97" name="Match content of [totalJobCost]"><con:configuration><path>$.result.totalJobCost</path><content>100000.99</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="b5fac4b6-756d-469e-85b6-b776ce05e861" name="Match content of [text]"><con:configuration><path>$.result.constructionType.text</path><content>Manufactured Home (Mobile Homes)</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="961ceebc-3b92-4ae5-bda4-951326c4bcca" name="Match content of [recordClass]"><con:configuration><path>$.result.recordClass</path><content>COMPLETE</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${GetIntialZedRecId#recId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>fields</con:entry><con:entry>lang</con:entry><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>23469fa1-b11d-456a-98ec-061f4afbfcb6</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ec8af6fc-8148-4cc1-9566-d1822f06e2a8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>810b933d-d2db-4df7-a8bd-0accf340cb4c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>54840530-5a4f-41a5-8555-04d5f299b138</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>bf348097-fcbb-4d23-9993-7d218875819d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

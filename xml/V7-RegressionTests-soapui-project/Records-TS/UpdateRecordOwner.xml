@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d050f066-99b9-4d37-ab0a-db3a170f5438" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordOwner" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="3abd9510-f1b5-460d-b8a3-91bb5a5e9a78fileName">UpdateRecordOwner</con:setting><con:setting id="d050f066-99b9-4d37-ab0a-db3a170f5438fileName">UpdateRecordOwner</con:setting></con:settings><con:testStep type="datasource" name="GetTempRecordOwnerId" id="ea2fedcd-ecd6-406a-b26b-912061139bb6"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempRecordOwnerId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>OwnerId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadSecondRec" id="f66bf9dd-48d7-4064-b57d-bd17f552e41d"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordOwner" id="b0b304d9-acea-492f-b0ee-c5a138c3191f"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/owners/{id}" methodName="UpdateRecordOwner" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordOwner" id="35b9e0f5-0573-4a6e-a129-1929ca4bca09" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>
+  {
+	"phone": "9254133215",
+	"fax": "9254133315",
+	"email": "XXXXY@accela.com",
+	"primary": "Y",
+	"fullName": "FirstName, LastName",
+	"mailAddress": {
+		"address1": "MAIL ADDRESS LINE 11 Updated",
+		"address2": "MAIL ADDRESS LINE 22 Updated",
+		"address3": "MAIL ADDRESS LINE 33 Updated",
+		"city": "Dublin",            
+		"state": {
+			"value": "CA"
+		},
+		"country": {
+			"value": "US"
+		},
+		" postalCode": "94568"
+	}
+ }
+</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00061/owners/</con:originalUri><con:assertion type="JsonPath Match" id="7b0c854b-d23f-407e-a6a5-f8bcfb68b233" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="bd38d29a-0ddb-4230-91b7-9aa5a82505ea" name="Match content of [id]"><con:configuration><path>$.result.id</path><content>${GetTempRecordOwnerId#OwnerId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="00236aa0-9400-4919-bf66-2d48686ed9f1" name="Match content of [email]"><con:configuration><path>$.result.email</path><content>XXXXY@accela.com</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="id" value="${GetTempRecordOwnerId#OwnerId}"/>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>id</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>7d5a710d-8ccd-47c8-a567-c5472317bf83</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6318c4c2-1d95-4483-b88d-34a109ff460a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

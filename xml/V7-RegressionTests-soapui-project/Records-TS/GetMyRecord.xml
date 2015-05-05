@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4d0b69a0-4b98-4e6a-b04f-312583ae5267" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMyRecord" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="d28c0728-1117-4042-8f43-fc31824b25a9fileName">GetMyRecord</con:setting><con:setting id="4d0b69a0-4b98-4e6a-b04f-312583ae5267fileName">GetMyRecord</con:setting></con:settings><con:testStep type="datasource" name="ReadRecordsData" id="7eed77d6-2230-454e-9df5-ee79220e0e61"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>Cp1252</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordId-Building</con:property><con:property>customerId-Building</con:property><con:property>Desc-Building</con:property><con:property>TrackId-Building</con:property><con:property>srvCode</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="groovy" name="ScripttoConvertStr" id="1255904c-2363-47be-b205-700da2fb3953"><con:settings/><con:config><script>def AAgency = context.expand( '${#Project#AAAgency}' )
+def AAUserName = context.expand( '${#Project#AAUserName}' )
+
+def dept = AAgency.toUpperCase() + "/" + AAUserName.toUpperCase() + "/NA/NA/NA/NA/NA"</script></con:config></con:testStep><con:testStep type="restrequest" name="GetMyRecord" id="1725713a-d345-4401-bf82-1e6b70f7840c"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/mine" methodName="GetMyRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetMyRecord" id="c2bca62e-b16d-4191-a480-059fe6e3064b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request/><con:originalUri>https://apps-apis.dev.accela.com/v4/records/mine</con:originalUri><con:assertion type="JsonPath Match" id="22810d6d-20a6-428d-ad74-90a05925581b" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=""/>
+  <con:entry key="customId" value="${ReadSecondRec#CustId}"/>
+  <con:entry key="module" value=""/>
+  <con:entry key="status" value="${ReadSecondRec#status}"/>
+  <con:entry key="openedDateFrom" value=""/>
+  <con:entry key="completedDateFrom" value=""/>
+  <con:entry key="openedDateTo" value=""/>
+  <con:entry key="type" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="assignedDateTo" value=""/>
+  <con:entry key="completedByDepartment" value=""/>
+  <con:entry key="closedDateTo" value=""/>
+  <con:entry key="assignedDateFrom" value=""/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="completedByUser" value=""/>
+  <con:entry key="completedDateTo" value=""/>
+  <con:entry key="closedDateFrom" value=""/>
+  <con:entry key="expand" value=""/>
+  <con:entry key="recordClass" value="COMPLETE"/>
+  <con:entry key="types" value=""/>
+  <con:entry key="closedByUser" value=""/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="modules" value=""/>
+  <con:entry key="closedByDepartment" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>modules</con:entry><con:entry>assignedDateFrom</con:entry><con:entry>status</con:entry><con:entry>type</con:entry><con:entry>customId</con:entry><con:entry>completedByDepartment</con:entry><con:entry>lang</con:entry><con:entry>openedDateTo</con:entry><con:entry>recordClass</con:entry><con:entry>completedDateFrom</con:entry><con:entry>types</con:entry><con:entry>completedByUser</con:entry><con:entry>closedByDepartment</con:entry><con:entry>openedDateFrom</con:entry><con:entry>closedByUser</con:entry><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>fields</con:entry><con:entry>assignedDateTo</con:entry><con:entry>limit</con:entry><con:entry>module</con:entry><con:entry>closedDateTo</con:entry><con:entry>closedDateFrom</con:entry><con:entry>completedDateTo</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>663d1277-f7d3-4c01-a7c0-865ed83b334b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e28bce12-94e2-48c6-a755-a7508d6aab9d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>7eed77d6-2230-454e-9df5-ee79220e0e61</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

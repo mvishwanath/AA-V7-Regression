@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1eaeeb5f-ad8a-44d4-8696-bbd3d45d1152" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordAddresses" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="06112370-da6f-48cc-93dc-dff6a1d5dc94fileName">CreateRecordAddresses</con:setting><con:setting id="d1978259-9b14-4d62-a2ad-c46a909e37dafileName">CreateRecordAddresses</con:setting><con:setting id="1eaeeb5f-ad8a-44d4-8696-bbd3d45d1152fileName">CreateRecordAddresses</con:setting></con:settings><con:testStep type="datasource" name="ReadRecordsData" id="4f9dbc80-c8b8-4b10-b185-b3e00da39488"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>Cp1252</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordId</con:property><con:property>customerId</con:property><con:property>Desc</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordAddresses" id="7c31042f-f26a-4485-b818-1e752cbaa70a"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/addresses" methodName="CreateRecordAddresses" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordAddresses" id="888f39b0-432f-4107-91f2-a158dd5e11ec" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[
+    {
+        "streetStart": 1111111,
+        "streetEnd": 2222222,
+        "levelPrefix": "levelPrefix",
+        "levelStart": "st",
+        "levelEnd": "lve",
+        "addressLine1": "nanshan",
+        "addressLine2": "xili",
+        "houseAlphaStart": "alphaStart",
+        "houseAlphaEnd": "alphaEnd",
+        "xCoordinate": 84,
+        "yCoordinate": 152,
+        "secondaryStreetNumber": 2222,
+        "streetName": "S360 ROAD",
+        "postalCode": "3333FFF",
+        "unitEnd": "uEnd",
+        "unitStart": "uStart",
+        "city": "Changsha",
+        "inspectionDistrict": "Shenz",
+        "inspectionDistrictPrefix": "insp",
+        "neighberhoodPrefix": "nebhd_pre",
+        "description": "desc",
+        "streetPrefix": "pre",
+        "neighborhood": "nebhd",
+        "streetAddress": "langshan lukou",
+        "addressTypeFlag": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "country": {
+            "value": "CN",
+            "text": "China"
+        },
+        "houseFractionStart": {
+            "value": "1/2",
+            "text": "1/2"
+        },
+        "houseFractionEnd": {
+            "value": "1/4",
+            "text": "1/4"
+        },
+        "primary": {
+            "value": "N",
+            "text": "No"
+        },
+        "status": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "state": {
+            "value": "GA",
+            "text": "GA"
+        },
+        "streetSuffix": {
+            "value": "BLVD",
+            "text": "BLVD"
+        }
+    }
+]</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records/recordId/addresses</con:originalUri><con:assertion type="JsonPath Match" id="f8855bd9-8fe1-43bc-acd7-35dc0e341e9a" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c8bbc567-1087-4412-a235-9ee100e8cfe2" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="1a818652-afdc-4745-a633-472f389b9a38" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadRecordsData#RecordId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteAddressesId" id="2dec686b-3938-4779-be9d-85ff0ef150f0"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/tempAddressId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>AddressesId</con:name><con:value>${CreateRecordAddresses#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordAddresses-2" id="23552f10-6084-4d4b-99b7-afea7bda4cf2"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/addresses" methodName="CreateRecordAddresses" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordAddresses-2" id="888f39b0-432f-4107-91f2-a158dd5e11ec" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[
+    {
+        "streetStart": 11111111,
+        "streetEnd": 22222221,
+        "levelPrefix": "levelPrefix1",
+        "levelStart": "st1",
+        "levelEnd": "lve1",
+        "addressLine1": "nanshan1",
+        "addressLine2": "xili1",
+        "houseAlphaStart": "alphaStart1",
+        "houseAlphaEnd": "alphaEnd1",
+        "xCoordinate": 841,
+        "yCoordinate": 1521,
+        "secondaryStreetNumber": 22221,
+        "streetName": "S360 ROAD1",
+        "postalCode": "3333FFF1",
+        "unitEnd": "uEnd1",
+        "unitStart": "uStart",
+        "city": "Changsha",
+        "inspectionDistrict": "Shenz",
+        "inspectionDistrictPrefix": "insp",
+        "neighberhoodPrefix": "nebhd_pre",
+        "description": "desc",
+        "streetPrefix": "pre",
+        "neighborhood": "nebhd",
+        "streetAddress": "langshan lukou",
+        "addressTypeFlag": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "country": {
+            "value": "CN",
+            "text": "China"
+        },
+        "houseFractionStart": {
+            "value": "1/2",
+            "text": "1/2"
+        },
+        "houseFractionEnd": {
+            "value": "1/4",
+            "text": "1/4"
+        },
+        "primary": {
+            "value": "N",
+            "text": "No"
+        },
+        "status": {
+            "value": "A",
+            "text": "Enabled"
+        },
+        "state": {
+            "value": "GA",
+            "text": "GA"
+        },
+        "streetSuffix": {
+            "value": "BLVD",
+            "text": "BLVD"
+        }
+    }
+]</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records/recordId/addresses</con:originalUri><con:assertion type="JsonPath Match" id="f8855bd9-8fe1-43bc-acd7-35dc0e341e9a" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c8bbc567-1087-4412-a235-9ee100e8cfe2" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="5ae159fd-9694-4ebc-8905-3f6a2654e2b0" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadRecordsData#RecordId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>3fd3850f-42cb-45c3-9783-e19a47957615</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0384986e-aec5-4fc6-a316-0e71a3f66fc0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

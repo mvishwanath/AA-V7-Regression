@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c40c314d-719f-4a5a-9361-156973b9df87" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordCondition" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="12279125-aa0f-4b5f-9bbb-38048866d576fileName">UpdateRecordCondition</con:setting><con:setting id="c40c314d-719f-4a5a-9361-156973b9df87fileName">UpdateRecordCondition</con:setting></con:settings><con:testStep type="datasource" name="GetRecordConditionId" id="7735bc32-6cab-465e-ab88-1ad0986bc5dd"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempRecordConditionId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordConditionId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadSecondRec" id="3ee54ce0-a643-4789-bed5-24d8b96f8193"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordCondition" id="f25c06de-c13a-4992-a963-7a50affa1d59"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/conditions/{id}" methodName="UpdateRecordCondition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordCondition" id="2638d224-ea07-4bd3-81f3-a2eb4adb8d6c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+      "statusType": "Applied",
+      "appliedDate": "2015-02-09 00:00:00",
+      "shortComments": "Updated Property and/or structure is noted as Historic.  Approval from the Historic Commission is required prior to Issuing the permit.",
+      "name": "Updated Historic Commission Approval Required",
+      "longComments": "Updated Exterior Repairs, alterations and additions necessary for the preservation, restoration, rehabilitation or continued use of a building or structure may not be made without the approval of the City驴s Historic Commission.  Please contact the Planning Dept. for more information",
+     
+      "serviceProviderCode": "${#Project#AAAgency}",
+      "resAdditionalInformationPlainText": "",
+      "type":       {
+         "value": "Building Plans",
+         "text": "Building Plans"
+      },
+      "group":       {
+         "value": "Permits",
+         "text": "Permits"
+      },
+      "status":       {
+         "value": "Applied\u0002Applied",
+         "text": "Applied(Applied)"
+      },
+      "severity":       {
+         "value": "Notice",
+         "text": "Notice"
+      },
+      "activeStatus":       {
+         "value": "A",
+         "text": "Active"
+      },
+      "inheritable":       {
+         "value": "N",
+         "text": "No"
+      },
+      "appliedbyUser":       {
+         "value": "ADMIN",
+         "text": "Accela Administrator"
+      },
+      "displayNoticeInAgency": true,
+      "isIncludeNameInNotice": true,
+      "isIncludeShortCommentsInNotice": true,
+      "displayNoticeInCitizens": true,
+      "displayNoticeInCitizensFee": false,
+      "recordId":       {
+         "id": "${ReadSecondRec#Recid2}",
+         "serviceProviderCode": "${#Project#AAAgency}",
+         "value": "${ReadSecondRec#CustId}"
+      }
+   }</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00094/conditions/178561</con:originalUri><con:assertion type="JsonPath Match" id="f807c4de-e130-4ef6-ac52-34b8d12924cc" name="Match content of [shortComments]"><con:configuration><path>$.result.shortComments</path><content>Updated Property and/or structure is noted as Historic.  Approval from the Historic Commission is required prior to Issuing the permit.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="e655abfd-ffd1-47bf-b622-dfa9d735c571" name="Match content of [longComments]"><con:configuration><path>$.result.longComments</path><content>Updated Exterior Repairs, alterations and additions necessary for the preservation, restoration, rehabilitation or continued use of a building or structure may not be made without the approval of the City驴s Historic Commission.  Please contact the Planning Dept. for more information</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ff6ee51e-ef5c-432b-8aa6-15f160de05ac" name="Match content of [name]"><con:configuration><path>$.result.name</path><content>Updated Historic Commission Approval Required</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="170e3b99-59d7-4d43-950d-9abbbc762baa" name="Match content of [id]"><con:configuration><path>$.result.id</path><content>${GetRecordConditionId#RecordConditionId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="4e0c08dd-f52f-4889-82bf-a60075056829" name="Match content of [id]"><con:configuration><path>$.result.recordId.id</path><content>${ReadSecondRec#Recid2}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c3879ec2-0f03-4f5e-9f0f-4263ee5675e1" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.recordId.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="5b03d5d6-0910-4e5f-87bc-8d063967a00f" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="id" value="${GetRecordConditionId#RecordConditionId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>f9e298e9-1c8b-42a3-85bd-18d921469d22</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

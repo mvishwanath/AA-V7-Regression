@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="f0e95487-e34c-4400-9d9a-898c2c4cd830" name="SearchTS" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f0e95487-e34c-4400-9d9a-898c2c4cd830fileName">SearchTS</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="UpdateInspection" path="/v4/inspections/{id}" id="f44f2e32-d19a-4553-ac58-418a2e67ff9b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f44f2e32-d19a-4553-ac58-418a2e67ff9bfileName">UpdateInspection1</con:setting></con:settings><con:parameters><con:parameter><con:name>id</con:name><con:value>id</con:value><con:style>TEMPLATE</con:style><con:default>id</con:default></con:parameter><con:parameter><con:name>token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="UpdateInspection" id="3221b70e-9563-440f-9df9-91409ab595e6" method="PUT"><con:settings/><con:parameters/><con:request name="UpdateInspection" id="522a58e4-49c8-43c5-86ca-5e78784d1d78" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+"requestAMPM": "AM",
+"requestTime": "9.30",
+"address":          {
+            "streetStart": 2012,
+            "refAddressId": 24,
+            "id": 634,
+            "serviceProviderCode": "BPTDEV",
+            "isPrimary": "Y",
+            "streetName": "Bishop",
+            "postalCode": "94583",
+            "city": "San Ramon",
+            "addressTypeFlag":            {
+              "value": "I",
+              "text": "Inactive"
+            },
+            "country":            {
+              "value": "US",
+              "text": "United States"
+            },
+            "status":            {
+              "value": "A",
+              "text": "Active"
+            },
+            "state":            {
+              "value": "CA",
+              "text": "CA"
+            },
+            "streetSuffix":            {
+              "value": "Dr",
+              "text": "Dr"
+            }
+        }
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/inspections/id</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="id" value="890853"/>
+  <con:entry key="token" value="02435427290891701494255593171301845220719625385725980979084530596878270213827747024467016856441489283657245840025723589545531691"/>
+</con:parameters><con:parameterOrder><con:entry>id</con:entry><con:entry>token</con:entry></con:parameterOrder></con:request></con:method></con:resource>

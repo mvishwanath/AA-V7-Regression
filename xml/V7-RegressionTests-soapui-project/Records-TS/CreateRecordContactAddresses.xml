@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="cdbfefef-f349-4222-93c2-b69a2a8c90b2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordContactAddresses" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="a2444dc2-f83f-4087-986a-275214bb4171fileName">CreateRecordContactAddresses</con:setting><con:setting id="cdbfefef-f349-4222-93c2-b69a2a8c90b2fileName">CreateRecordContactAddresses</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="70f8c644-547a-4d5f-9f62-dee8f5b115b4"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="GetContactId" id="c5bdf557-d033-425f-b97d-88c496d43acc"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/RecordContactId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordContactId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordContactAddresses" id="6cdd951d-478c-4ca2-9e04-e2e93088e940"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/contacts/{contactId}/addresses" methodName="CreateRecordContactAddresses" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordContactAddresses" id="3fe7f059-750d-4b1d-b3da-e57e1551626c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[{
+    "streetName": "6848 Eden St",
+    "unitType": {
+        "value": "Unit Type"
+    },
+    "faxCountryCode": "001",
+    "addressLine2": "Adddress Ln2",
+    "unitEnd": "00002",
+    "type": {
+        "value": "type 123"
+    },
+    "isPrimary": "Y",
+    "city": "Dublin",
+    "houseAlphaEnd": "1",
+    "expirationDate": "",
+    "streetStart": "1234",
+    "postalCode": "94568",
+    "streetAddress": "100 Street Address",
+    "effectiveDate": "",
+    "phoneCountryCode": "001",
+    "levelStart": "111",
+    "addressLine3": "Address Lane 3",
+    "state": {
+        "value": "CA"
+    },
+    "levelEnd": "2222",
+    "direction": {
+        "value": "E"
+    },
+    "streetEnd": "12345",
+    "id": "1028",
+    "levelPrefix": "343434",
+    "recipient": "12345",
+    "fax": "12345",
+    "addressLine1": "Address Lane 1 ",
+    "status": {
+        "value": "A"
+    },
+    "phone": "1234567890",
+    "country": {
+        "value": "US"
+    },
+    "houseAlphaStart": "11 AlphaSt",
+    "streetPrefix": "ST",
+    "unitStart": "1234",
+    "streetSuffixDirection": {
+        "value": "E"
+    }
+}
+]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00066/contacts/50331990/addresses</con:originalUri><con:assertion type="JsonPath Match" id="2decfa9d-6f92-4dd6-87a3-fad6aed3275a" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7ca6ea83-aa7f-4b43-b365-a09911974ae6" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="5c73d880-132d-49e7-80b5-9fe0ef6b8669" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="contactId" value="${GetContactId#RecordContactId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>contactId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteContactAddressId" id="63c62438-6950-4e89-854f-cedd12abd25b"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/TempRecordContactAddressId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordContactAddressId</con:name><con:value>${CreateRecordContactAddresses#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordContactAddresses-2" id="64074f19-a478-4931-b2ee-133269e9a6cb"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/contacts/{contactId}/addresses" methodName="CreateRecordContactAddresses" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordContactAddresses-2" id="3fe7f059-750d-4b1d-b3da-e57e1551626c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[{
+   "streetName": "6848 Eden St",
+   "unitType": {"value": "Unit Type"},
+   "faxCountryCode": "001",
+   "addressLine2": "Adddress Ln2",
+   "unitEnd": "00002",
+   "type": {"value": "type 123"},
+   "isPrimary": "N",
+   "city": "Dublin",
+   "houseAlphaEnd": "1",
+   "expirationDate": "",
+   "streetStart": "1234",
+   "postalCode": "94568",
+   "streetAddress": "100 Street Address",
+   "effectiveDate": "",
+   "phoneCountryCode": "001",
+   "levelStart": "111",
+   "addressLine3": "Address Lane 3",
+   "state": {"value": "CA"},
+   "levelEnd": "2222",
+   "direction": {"value": "E"},
+   "streetEnd": "12345",
+   "id": "1028",
+   "levelPrefix": "343434",
+   "recipient": "12345",
+   "fax": "12345",
+   "addressLine1": "Address Lane 1 ",
+   "status": {"value": "A"},
+   "phone": "1234567890",
+   "country": {"value": "US"},
+   "houseAlphaStart": "11 AlphaSt",
+   "streetPrefix": "ST",
+   "unitStart": "1234",
+   "streetSuffixDirection": {"value": "E"}
+}]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00066/contacts/50331990/addresses</con:originalUri><con:assertion type="JsonPath Match" id="2decfa9d-6f92-4dd6-87a3-fad6aed3275a" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="7ca6ea83-aa7f-4b43-b365-a09911974ae6" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="5c73d880-132d-49e7-80b5-9fe0ef6b8669" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="contactId" value="${GetContactId#RecordContactId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>contactId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteContactAddressId2" id="2f87c845-e7b7-486d-b541-49fa6b787393"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/TempRecordContactAddressId2</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordContactAddressId</con:name><con:value>${CreateRecordContactAddresses-2#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>726a8001-7fdf-4b36-839f-2723ef264e75</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f60139b5-e394-46ad-be22-cd8e160893b9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Records" type="rest" id="f53b065f-c997-420d-b82e-36e5067baa8e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f53b065f-c997-420d-b82e-36e5067baa8efileName">Records</con:setting></con:settings><con:definitionCache type="TEXT" rootPart=""/><con:endpoints/></con:interface>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="02d210bb-f957-42e5-b732-d9f37509039b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordProfessionals" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ce5a7aff-e157-4abc-a4ec-17124aba605efileName">CreateRecordProfessionals</con:setting><con:setting id="02d210bb-f957-42e5-b732-d9f37509039bfileName">CreateRecordProfessionals</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="f1d9f134-98f3-4bea-9d06-cf12b9a742ef"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datagen" name="IdGeneration" id="3a059e05-8d1a-4ecb-930a-fac363c6088e"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Number"><con:configuration><start>9999</start><end>100000</end><step>2</step><pattern/><random>true</random><persist>false</persist></con:configuration><con:name>Id</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordProfessionals" id="70ee0182-5ded-4cf9-8068-110a212e1c2a"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/professionals" methodName="CreateRecordProfessionals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordProfessionals" id="4bc7c3a9-1014-4612-be84-0bc80e0dddff" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[
+            {
+         "firstName": "Malyala",
+         "lastName": "Radhasyam",
+         "phone1": "12312312",
+         "addressLine1": "123 My Street",
+         "licenseNumber": "${IdGeneration#Id}",
+         "businessName": "Radhe, INC.",
+         "email": "Radhe@accela.com",
+         "city": "Dublin",
+         "postalCode": "94568",
+         "isPrimary": "Y",
+         "fullName": "Malyala Radhsyam",
+         
+         "licenseType":          {
+            "value": "Business",
+            "text": "Business"
+         },
+         "licensingBoard":          {
+            "value": "Massage/Tattoo",
+            "text": "Massage/Tattoo"
+         },
+         "state":          {
+            "value": "CA",
+            "text": "CA"
+         }
+      }
+   ]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00069/professionals</con:originalUri><con:assertion type="JsonPath Match" id="4a5ed7ad-c5f3-4bd3-866c-d7a7f8ad80ff" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="06ef8819-c80b-4385-b42d-74671077365e" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="5f7c7340-9fe1-437e-81fc-ec956d2f1e6c" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="34369429-8867-4054-afca-982ce3cf30cb" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,404,500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteProfessionalId" id="611eba20-f62d-43e2-a815-be48bc68db37"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/tempRecordProfessionalId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordProfessionalId</con:name><con:value>${CreateRecordProfessionals#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>05042149-4b60-408a-a3c0-21900207fad5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9fc7cb7f-ceab-4ed2-bd7a-e709a7a7940c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>bd88d1c8-3a25-401f-b031-81f11001a447</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

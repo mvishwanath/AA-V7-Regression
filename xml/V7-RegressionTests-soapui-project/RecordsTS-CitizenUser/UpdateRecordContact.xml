@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9f681e1f-7058-468d-b288-34e04242b46c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordContact" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="7d101402-4039-4a10-8a47-802f3b80983ffileName">UpdateRecordContact</con:setting><con:setting id="9ed697f1-3cd0-4c70-b5ac-5b18cc989b44fileName">UpdateRecordContact</con:setting><con:setting id="9f681e1f-7058-468d-b288-34e04242b46cfileName">UpdateRecordContact</con:setting></con:settings><con:testStep type="datasource" name="GetContactId" id="5a0189ea-a208-4766-9d91-701f1c66fa5c"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/RecordContactId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordContactId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadSecondRec" id="eaa80a92-6b53-4722-9701-1bb7f3ea97ef"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordContact" id="c073587d-0ded-4817-a358-ca10deb0934b"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/contacts/{id}" methodName="UpdateRecordContact" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordContact" id="36bc9654-5534-4ce2-90b3-c969f39d8c80" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+   "comment": "API Regression Test Updated ",
+   "fullName": "FirstName99, LastName99",
+   "startDate": "2013-12-08T16:00:00Z",
+   "middleName": "ttt",
+   "postOfficeBox": "123123123",
+   "birthDate": "2013-12-08T16:00:00Z",
+   "endDate": "2013-12-08T16:00:00Z",
+   "firstName": "FirstName99",
+   "lastName": "LastName99",
+   "email": "kanssa008@163.com3",
+   "title": "Tony's Individual4",
+   "socialSecurityNumber": "aA1-23-21aa",
+   "recordId":    {
+      "serviceProviderCode": "${#Project#AAAgency}",
+      "id": "${ReadSecondRec#Recid2}",
+      "trackingId": 0
+   },
+   "typeFlag": "individual",
+   "address":    {
+      "addressLine1": "1111",
+      "addressLine2": "12312312312312",
+      "addressLine3": "123123",
+      "city": "2222",
+      "zip": "AS12213"
+   },
+   "suffix": "123123",
+   "phoneNumber1": "333333333334",
+   "phoneNumber2": "123123123124",
+   "phoneNumber3": "123123123125",
+   "faxNumber": "12313123123",
+   "primary": "Y",
+   "id": "",
+   "type":    {
+      "value": "ACA-Contact",
+      "text": "ACA-Contact"
+   }
+}</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00066/contacts/50331990</con:originalUri><con:assertion type="JsonPath Match" id="4eca66ad-1461-45d2-9e43-541df60ef639" name="Match content of [comment]"><con:configuration><path>$.result.comment</path><content>API Regression Test Updated </content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="5d28956a-6942-4c7d-a1d0-7d7158604740" name="Match content of [id]"><con:configuration><path>$.result.recordId.id</path><content>${ReadSecondRec#Recid2}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="32205210-003a-48eb-8fd6-98de57ee58b5" name="Match content of [fullName]"><con:configuration><path>$.result.fullName</path><content>FirstName99, LastName99</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="ca7434e2-dd35-4677-aea6-e6ddec69e087" name="Match content of [id]"><con:configuration><path>$.result.id</path><content>${GetContactId#RecordContactId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="df396051-9ad5-45c6-b65e-d696adb19124" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="id" value="${GetContactId#RecordContactId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>id</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>c4c3009e-9501-4604-b79e-545c8c991ee9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>da933635-0d65-43d4-97d4-7dc2f6fee06e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="CreateRecord" path="/v4/records" id="c2cb0599-e89a-4ccf-8051-e37b6524627d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c2cb0599-e89a-4ccf-8051-e37b6524627dfileName">CreateRecord</con:setting></con:settings><con:parameters><con:parameter><con:name>token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="CreateRecord" method="POST" id="7d8d9486-30c1-4521-a81b-f6e4b9c8936a"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rec="https://apps-apis.dev.accela.com/v4/records">rec:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>401 400</con:status><con:params/><con:element xmlns:rec="https://apps-apis.dev.accela.com/v4/records">rec:Fault</con:element></con:representation><con:request name="CreateRecord" mediaType="application/json" postQueryString="false" id="a869f14f-c8b1-4b64-9e55-7f4a16fa2696"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+      "type":          {
+            "module": "Building",
+            "value": "Building/Residential/Fire/Appliction",
+            "type": "Residential",
+            "category": "Appliction",
+            "text": "Building/Residential/Fire/Appliction",
+            "group": "Building",
+            "alias": "Building/Residential/Fire/Appliction",
+            "subType": "Fire",
+            "id": "Building-Residential-Fire-Appliction"
+         },
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": 0,
+      "undistributedCost": 0,
+      "initiatedProduct": "AV360",
+      "jobValue": 11,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 43,
+      "numberOfBuildings": 32,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 0,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": true
+}</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:request></con:method></con:resource>

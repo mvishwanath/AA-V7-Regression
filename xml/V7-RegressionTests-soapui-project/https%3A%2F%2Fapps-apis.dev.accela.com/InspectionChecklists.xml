@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="InspectionChecklists" path="/v4/inspections/{inspectionId}/checklists" id="c771ed48-a259-4a29-83c8-53e32aa045cb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c771ed48-a259-4a29-83c8-53e32aa045cbfileName">InspectionChecklists</con:setting></con:settings><con:parameters><con:parameter><con:name>inspectionId</con:name><con:value>inspectionId</con:value><con:style>TEMPLATE</con:style><con:default>inspectionId</con:default></con:parameter><con:parameter><con:name>lang</con:name><con:value>{lang}</con:value><con:style>QUERY</con:style><con:default>{lang}</con:default></con:parameter><con:parameter><con:name>token</con:name><con:value/><con:style>QUERY</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="CheckList" id="e3caa3c5-381e-443a-a9a8-67f9916078fb" method="POST"><con:settings/><con:parameters/><con:request name="CheckList" id="ac807ef9-02dc-42d3-8d97-b79708d76daa" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>
+[
+	{
+		"group": "INSPECTION",
+		"recordId": {
+			"id": "BPTDEV-15CAP-00000-003A9",
+			"serviceProviderCode": "BPTDEV",
+			"trackingId": "260700860"
+		},
+		"guideType": {
+			"value": "Set Backs"
+		}
+	}
+]</con:request><con:originalUri>http://220.232.135.196/apis/v4/inspections/890853/checklists</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="inspectionId" value="890853"/>
+  <con:entry key="token" value="02435427290891701494255593171301845220719625385725980979084530596878270213827747024467016856441489283657245840025723589545531691"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>inspectionId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:request></con:method></con:resource>

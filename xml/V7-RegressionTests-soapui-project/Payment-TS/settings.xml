@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="86d6f6e3-0196-4730-acbd-a4a2e43af43a" name="Payment-TS" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="86d6f6e3-0196-4730-acbd-a4a2e43af43afileName">Payment-TS</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

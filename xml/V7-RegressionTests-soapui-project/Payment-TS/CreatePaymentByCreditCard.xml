@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="27cbf5a8-afca-43f0-9c65-a55513ecae61" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreatePaymentByCreditCard" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="27cbf5a8-afca-43f0-9c65-a55513ecae61fileName">CreatePaymentByCreditCard</con:setting></con:settings><con:testStep type="calltestcase" name="GetToken" id="092d1c8d-5c68-42d8-9493-4cf1b9bb2b1d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7aaee081-8f71-40c1-980f-c5c8276abf73</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="datasource" name="ReadRecord2Data" id="a3025c55-6191-420c-b4c7-04b6e1471f89"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecId2Building</fileName><separator>,</separator><trim>true</trim><charset>Cp1252</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordId-Building</con:property><con:property>customerId-Building</con:property><con:property>Desc-Building</con:property><con:property>TrackId-Building</con:property><con:property>srvCode</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreatePaymentByCreditCard" id="1832515c-3ebc-4617-89ac-136ea4d8d9a6"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/payments" methodName="CreatePayment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreatePaymentByCreditCard" id="e93edfc7-f249-4aa3-9163-5ef21885e211" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+   "entityType": "Record",
+   "entityId": "14CAP-00000-00380",
+   "creditCard":    {
+      "securityCode": "302",
+      "businessName": "Accela Bank Inc",
+      "cardType": "VISA",
+      "cardNumber": "4012888888881881",
+      "expirationYear": "2016",
+      "expirationMonth": "10",
+      "email": "RS@accela123.com",
+      "holderName": "FirstName, LastName",
+      "billingAddress":       {
+         "addressLine1": "1234 EdenSt",
+         "addressLine2": "1234567Unit",
+         "countryCode": "USA",
+         "state": "CA",
+         "addressLine3": "Address Ln3",
+         "postalCode": "94568",
+         "city": "Dublin"
+      }
+   },
+   "paymentMethod": "Credit Card",
+   "currency": "USD",
+   "amount": "1000990.99"
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/payments</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreatePaymentByCreditCard-TrustAccount" id="26f52daf-03a1-41c7-8c59-b6615b7c05f0"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/payments" methodName="CreatePayment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreatePaymentByCreditCard-TrustAccount" id="e93edfc7-f249-4aa3-9163-5ef21885e211" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+    "entityType": "Record",
+    "creditCard": {
+        "securityCode": "302",
+        "businessName": "Accela Bank Inc",
+        "cardType": "VISA",
+        "cardNumber": "4012888888881881",
+        "expirationYear": "2016",
+        "expirationMonth": "10",
+        "email": "RS@accela123.com",
+        "holderName": "FirstName, LastName",
+        "billingAddress": {
+            "addressLine1": "1234 EdenSt",
+            "addressLine2": "1234567Unit",
+            "countryCode": "USA",
+            "state": "CA",
+            "addressLine3": "Address Ln3",
+            "postalCode": "94568",
+            "city": "Dublin"
+        }
+    },
+    "trustAccount": {
+        "id": "long"
+    },
+    "paymentMethod": "Trust Account",
+    "currency": "USD",
+    "amount": "1000790.99",
+    "entityId": "string"
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/payments</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreatePaymentByCreditCard-Check" id="21c0af67-48e2-4b1a-8928-f2c5a761cfb7"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/payments" methodName="CreatePayment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreatePaymentByCreditCard-Check" id="e93edfc7-f249-4aa3-9163-5ef21885e211" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+    "entityType": "Record",
+    "entityId": "${ReadRecord2Data#RecordId-Building}",
+    "creditCard": {
+        "securityCode": "302",
+        "businessName": "Accela Bank Inc",
+        "cardType": "VISA",
+        "cardNumber": "4012888888881881",
+        "expirationYear": "2016",
+        "expirationMonth": "10",
+        "email": "RS@accela123.com",
+        "holderName": "FirstName, LastName",
+        "billingAddress": {
+            "addressLine1": "1234 EdenSt",
+            "addressLine2": "1234567Unit",
+            "countryCode": "USA",
+            "state": "CA",
+            "addressLine3": "Address Ln3",
+            "postalCode": "94568",
+            "city": "Dublin"
+        }
+    },
+    "paymentMethod": "Check",
+    "currency": "USD",
+    "amount": "1000890.99"
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/payments</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="CreatePaymentByCreditCard-WrongPaymentMethod" id="99978016-454e-4121-91a0-16c18f3f504c"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/payments" methodName="CreatePayment" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreatePaymentByCreditCard-WrongPaymentMethod" id="e93edfc7-f249-4aa3-9163-5ef21885e211" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+    "entityType": "Record",
+    "entityId": "${ReadRecord2Data#RecordId-Building}",
+    "creditCard": {
+        "securityCode": "302",
+        "businessName": "Accela Bank Inc",
+        "cardType": "VISA",
+        "cardNumber": "4012888888881881",
+        "expirationYear": "2016",
+        "expirationMonth": "10",
+        "email": "RS@accela123.com",
+        "holderName": "FirstName, LastName",
+        "billingAddress": {
+            "addressLine1": "1234 EdenSt",
+            "addressLine2": "1234567Unit",
+            "countryCode": "USA",
+            "state": "CA",
+            "addressLine3": "Address Ln3",
+            "postalCode": "94568",
+            "city": "Dublin"
+        }
+    },
+    "paymentMethod": "Radhe",
+    "currency": "USD",
+    "amount": "1000990.99"
+}</con:request><con:originalUri>http://220.232.135.196/apis/v4/payments</con:originalUri><con:assertion type="JsonPath Match" id="95ba385f-7152-4df8-8f4a-778384bcd172" name="Match content of [status]"><con:configuration><path>$.status</path><content>400</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="3464fd44-f97c-443f-805d-7d798496d1c9" name="Match content of [message]"><con:configuration><path>$.message</path><content>The payment method only support 'Credit Card','Check' and 'Trust Account'</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>092d1c8d-5c68-42d8-9493-4cf1b9bb2b1d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>a3025c55-6191-420c-b4c7-04b6e1471f89</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>99978016-454e-4121-91a0-16c18f3f504c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

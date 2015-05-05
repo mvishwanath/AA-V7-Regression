@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fdb45824-1d2d-4427-9bd7-d388c6812ea5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordProfessionals" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1a516f2e-7fbb-474f-83d7-eecf7b27ef26fileName">UpdateRecordProfessionals</con:setting><con:setting id="fdb45824-1d2d-4427-9bd7-d388c6812ea5fileName">UpdateRecordProfessionals</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="68a01dd4-809d-4570-9b9c-c77ea4ef546c"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="GetProfeesionalIdType" id="cafe9fb0-8a10-41dd-94c4-0dfb263dd4b2"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempWriteProfenalIdWithType</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>ProfeeId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="GetProfessionalId" id="c9ab434b-df9b-4a9b-963d-b64b9c2833d6"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempRecordProfessionalId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>ProfeeId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordProfessionals" id="09b97d90-c7d4-4629-8659-58170cdff642"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/professionals/{ids}" methodName="UpdateRecordProfessionals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordProfessionals" id="cb447064-50c6-4fea-a17d-5f9389a42929" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Authorization" value="${#Project#CNSTAccessToken}"/>
+  &lt;con:entry key="x-accela-appid" value="${#Project#AppIdAGY}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>
+            {
+         "firstName": "Malyala",
+         "lastName": "Radhasyam",
+         "phone1": "9254133215",
+         "addressLine1": "123 My Street",
+         "licenseNumber": "${GetProfessionalId#ProfeeId}",
+         "businessName": "Radhe, INC.",
+         "email": "Radhe@accela.com",
+         "city": "Dublin",
+         "postalCode": "94567",
+         "isPrimary": "Y",
+         "fullName": "Malyala Radhsyam",
+         
+         "licenseType":          {
+            "value": "Business",
+            "text": "Business"
+         },
+         "licensingBoard":          {
+            "value": "Massage/Tattoo",
+            "text": "Massage/Tattoo"
+         },
+         "state":          {
+            "value": "CA",
+            "text": "CA"
+         }
+      }
+</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00070/professionals/96920-Business</con:originalUri><con:assertion type="JsonPath Match" id="7b9ba599-e7d8-474c-ab95-ee0790333283" name="Match content of [phone1]"><con:configuration><path>$.result.phone1</path><content>9254133215</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="3aa0f21a-3377-410b-b5d4-0c831b9e0e2b" name="Match content of [businessName]"><con:configuration><path>$.result.businessName</path><content>Radhe, INC.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="4f6d6738-8530-4a04-84eb-ac5d946a52a1" name="Match content of [city]"><con:configuration><path>$.result.city</path><content>Dublin</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="60e7fb02-1864-4adb-958d-7d0da956a752" name="Match content of [id]"><con:configuration><path>$.result.recordId.id</path><content>${ReadSecondRec#Recid2}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="bde45702-d4e1-4ffb-9eb9-32e6e5f34de2" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="ids" value="${GetProfeesionalIdType#ProfeeId}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>ids</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>2262bcaf-3596-4acf-8a77-665c330c4bfd</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9f2b9f3c-3b83-4d3d-9654-54ba6a0f974b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

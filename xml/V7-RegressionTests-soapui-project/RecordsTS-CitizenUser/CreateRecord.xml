@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecord" searchProperties="true" id="13053457-bb54-4306-876b-4f41721cc27d" xmlns:con="http://eviware.com/soapui/config"><con:description>TestCase generated for REST Resource [CreateRecord] located at [/v4/records]</con:description><con:settings><con:setting id="40a01c19-5b1d-4b64-8c27-48e5a81b10ebfileName">CreateRecord-TestCase</con:setting><con:setting id="13053457-bb54-4306-876b-4f41721cc27dfileName">CreateRecord</con:setting></con:settings><con:testStep type="calltestcase" name="GetCitizenUserToken" id="6d159858-77a0-4209-bc88-e95b6e1de02d"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>10a332e9-e71c-4c7b-ac11-3e13799759e4</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord" id="56d53499-2ff8-43e2-8159-cb79538eba5d"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+      "type":          {
+            "module": "Building",
+            "value": "Building/Residential/Addition/Appliction-2706",
+            "type": "Residential",
+            "category": "Appliction-2706",
+            "group": "Building",
+            "subType": "Addition"
+         },
+         "description":"Create Building/Residential/Addition/Appliction-2706 Record API Regression Test",
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": "100000",
+      "undistributedCost": "10000",
+      "initiatedProduct": "Fire Proof - AV360",
+      "jobValue": 11,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 43,
+      "numberOfBuildings": 32,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 0,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": false
+}}
+</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRecDataToFile" id="1e1e55c9-c41a-4857-beb1-febf49477687"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>data/TempRecIdBuilding</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord-2" id="cc0a30a4-4921-40da-a64c-b10ecfc56771"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord-2" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+   "type":    {
+      "module": "Building",
+      "value": "Building/Residential/Addition/Appliction-2706",
+      "type": "Residential",
+      "category": "Appliction-2706",
+      "group": "Building",
+      "subType": "Addition"
+   },
+   "description": "Create Building/Residential/Addition/Appliction-2706 Record API Regression Test Record 3",
+   "status":    {
+      "value": "Ready to Issue",
+      "text": "Ready to Issue"
+   },
+   "statusDate": "2014-05-25 01:01:08",
+   "totalJobCost": "100000",
+   "undistributedCost": "10000",
+   "initiatedProduct": "Fire Proof - AV360",
+   "jobValue": 11,
+   "constructionType":    {
+      "value": "106",
+      "text": "Manufactured Home (Mobile Homes)"
+   },
+   "housingUnits": 43,
+   "numberOfBuildings": 32,
+   "createdBy": "ADMIN",
+   "module": "Building",
+   "totalFee": 0,
+   "totalPay": 0,
+   "balance": 0,
+   "booking": false,
+   "infraction": false,
+   "misdemeanor": false,
+   "offenseWitnessed": false,
+   "defendantSignature": false,
+   "publicOwned": false
+}</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRec2DataToFile" id="d7ab017c-accd-4d72-93ca-32d8fcc4d641"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>data/TempRecId2Building</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord-2#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord-2#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord-2#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord-2#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord-2#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord-3" id="fc3988c3-04c6-41a8-8ebc-271d92c8ceea"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord-3" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+   "type":    {
+      "module": "Building",
+      "value": "Building/Residential/Addition/Appliction-2706",
+      "type": "Residential",
+      "category": "Appliction-2706",
+      "group": "Building",
+      "subType": "Addition"
+   },
+   "description": "Create Building/Residential/Addition/Appliction-2706 Record API Regression Test Record 2",
+   "status":    {
+      "value": "Ready to Issue",
+      "text": "Ready to Issue"
+   },
+   "statusDate": "2014-05-25 01:01:08",
+   "totalJobCost": "100000",
+   "undistributedCost": "10000",
+   "initiatedProduct": "Fire Proof - AV360",
+   "jobValue": 11,
+   "constructionType":    {
+      "value": "106",
+      "text": "Manufactured Home (Mobile Homes)"
+   },
+   "housingUnits": 43,
+   "numberOfBuildings": 32,
+   "createdBy": "ADMIN",
+   "module": "Building",
+   "totalFee": 0,
+   "totalPay": 0,
+   "balance": 0,
+   "booking": false,
+   "infraction": false,
+   "misdemeanor": false,
+   "offenseWitnessed": false,
+   "defendantSignature": false,
+   "publicOwned": false
+}</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRec3DataToFile" id="f881d8be-d509-41bc-bdd2-c27d8af1b3a2"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>data/TempRecId3Building</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord-3#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord-3#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord-3#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord-3#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord-3#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>427381dc-2902-4cfa-9c07-2b95080257da</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0fcfa84a-3f4b-410e-85db-100da8b92091</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

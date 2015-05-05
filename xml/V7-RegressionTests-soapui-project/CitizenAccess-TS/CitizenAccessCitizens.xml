@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ea303f18-fbf9-44b7-849f-72fe44caff89" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CitizenAccessCitizens" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ea303f18-fbf9-44b7-849f-72fe44caff89fileName">CitizenAccessCitizens</con:setting></con:settings><con:testStep type="restrequest" name="CitizenAccessCitizens" id="c0fe6282-da45-443b-92be-ca6e3c956c42"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/citizenaccess/citizens" methodName="CitizenAccessCitizens" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CitizenAccessCitizens" id="765858c0-6d0c-4bab-aca9-b960632af53d" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request/><con:originalUri>http://220.232.135.196/apis/v4/citizenaccess/citizens</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="limit" value=""/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="expand" value=""/>
+  <con:entry key="offset" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="loginName" value="Mvishwanath"/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>loginName</con:entry><con:entry>limit</con:entry><con:entry>offset</con:entry><con:entry>expand</con:entry><con:entry>fields</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

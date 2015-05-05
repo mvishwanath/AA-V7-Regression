@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="bbfd207a-6bc5-4d37-8f17-25b8842f2c3f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RecordFeeEstimate" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="605782ee-0424-479d-84d8-b35e3c05960afileName">RecordFeeEstimate</con:setting><con:setting id="bbfd207a-6bc5-4d37-8f17-25b8842f2c3ffileName">RecordFeeEstimate</con:setting></con:settings><con:testStep type="datasource" name="ReadPartialRecId" id="3bf79c8e-9fe1-4c41-bc96-1a9212d48c71"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/tempPartialRecordId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>CustId</con:property><con:property>Desc</con:property><con:property>trackId</con:property><con:property>srvcode</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="RecordFeeEstimate" id="8518e73c-79f8-42cf-aaa3-765f54887031"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/fees/estimate" methodName="RecordFeeEstimate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="RecordFeeEstimate" id="ffeb9198-12b7-46ea-b6c8-652eadb9fbef" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[{
+  "paymentPeriod": {
+    "value": "FINAL"
+  },
+  "notes": "test",
+  "code": {
+    "value": "ENF-10"
+  },
+  "quantity": 100,
+  "version": {
+    "value": "V1.0"
+  },
+  "schedule": {
+    "value": "ENF_GENERAL"
+  }
+}
+]</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00043/fees/estimate</con:originalUri><con:assertion type="JsonPath Match" id="d0ab1a28-0cb0-4ed3-b432-20e62be45f2e" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="dd2acb71-5cb3-46d5-8ab6-3f657ba7b72a" name="Match content of [currencyCode]"><con:configuration><path>$.result.currencyCode</path><content>USD</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c8b1540a-2db2-4e19-a92d-3ab4eac6ba2f" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadPartialRecId#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>fields</con:entry><con:entry/></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>ad5e70a7-9f02-4041-ac63-6bdc1de67353</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

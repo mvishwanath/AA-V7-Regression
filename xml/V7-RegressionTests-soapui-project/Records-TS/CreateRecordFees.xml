@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="0e2a7e13-86e9-46ae-9356-c774005cad26" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordFees" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c55c64bd-c034-4bbc-b1e5-f273acc11da1fileName">CreateRecordFees</con:setting><con:setting id="0e2a7e13-86e9-46ae-9356-c774005cad26fileName">CreateRecordFees</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="902bb444-b7aa-4b8a-a0a3-45b0b7979c79"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordFees" id="d6613069-f578-4771-8066-fe7d402bbbdd"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/fees" methodName="CreateRecordFees" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordFees" id="6833046c-8dce-438e-adeb-343ce69a4f8f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[{
+  "code": {
+    "value": "ENF-10"
+  },
+  "quantity": "100",
+  "version": {
+    "value": "V1.0"
+  },
+  "feeNotes": "test",
+  "schedule": {
+    "value": "ENF_GENERAL"
+  },
+  "paymentPeriod": {
+    "value": "FINAL"
+  }
+}
+]</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00046/fees</con:originalUri><con:assertion type="JsonPath Match" id="7defd440-336b-4d31-a93c-bcad97ec82b9" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="22e8c25a-9e3b-4bf3-8510-c9d7d0bd5736" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="fields" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>fields</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry><con:entry>status</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteFeeId" id="a983493f-8691-4d97-939f-91caeb0fca8b"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/tempRecordFeeId.txt</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>feeId</con:name><con:value>${CreateRecordFees#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>41862dfd-b78a-4936-a5e8-126c706acdf9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

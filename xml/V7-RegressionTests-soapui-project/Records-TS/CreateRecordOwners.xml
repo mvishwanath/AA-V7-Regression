@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="7e6644c8-478b-4fda-9d37-4aaa479e7280" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecordOwners" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="c90969f9-7969-48f3-aa3d-fb14b3bff6cefileName">CreateRecordOwners</con:setting><con:setting id="7e6644c8-478b-4fda-9d37-4aaa479e7280fileName">CreateRecordOwners</con:setting></con:settings><con:testStep type="datasource" name="ReadSecondRec" id="54b58062-a28a-46b7-89a9-ce25891d41f5"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecordOwners" id="e67c7115-6844-46e2-b305-98f583dd3bd3"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/owners" methodName="CreateRecordOwners" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecordOwners" id="e8186432-0463-47df-9734-c4c355a34d43" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>[
+  {
+	"phone": "9254133215",
+	"fax": "9254133215",
+	"email": "XXXX@accela.com",
+	"primary": "Y",
+	"fullName": "FirstName, LastName",
+	"mailAddress": {
+		"address1": "MAIL ADDRESS LINE 1",
+		"address2": "MAIL ADDRESS LINE 2",
+		"address3": "MAIL ADDRESS LINE 3",
+		"city": "Dublin",            
+		"state": {
+			"value": "CA"
+		},
+		"country": {
+			"value": "US"
+		},
+		" postalCode": "94568"
+	}
+ }
+]</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00061/owners</con:originalUri><con:assertion type="JsonPath Match" id="a3ddf751-f428-4711-8696-1ac89097e634" name="Match content of [isSuccess]"><con:configuration><path>$.result[0].isSuccess</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="4a63ced6-4fd5-4f83-b22d-ad19b325a74c" name="Check for existence of [id]"><con:configuration><path>$.result[0].id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="42edc44f-5730-4773-9888-edc2bcd0f330" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,404,500</codes></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="5924a1e1-fb8d-4469-b5a8-1e4ffbc55089" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteTempOwnerId" id="0fa59be6-000a-4cca-a1e4-3359687655ae"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/tempRecordOwnerId</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>UTF-8</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordOwnerId</con:name><con:value>${CreateRecordOwners#Response#$.result[0].id}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>9bf19dc9-ed7a-4268-b8da-b63aa90710c9</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

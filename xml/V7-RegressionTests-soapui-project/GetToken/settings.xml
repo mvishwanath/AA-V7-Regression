@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="GetToken" type="rest" id="72562241-8fb3-4396-a9b4-a8252bd58573" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="72562241-8fb3-4396-a9b4-a8252bd58573fileName">GetToken</con:setting></con:settings><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://7.3.3.4_DEC_Regression</con:endpoint></con:endpoints></con:interface>

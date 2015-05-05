@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="8d354d4b-b06d-49b9-9fa6-8c77446494df" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateRecordContactAddress" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="6f6a0dcd-4c9c-41f4-a15f-884b44cb4d7bfileName">UpdateRecordContactAddress</con:setting><con:setting id="fe995ae7-18a2-4196-9947-c30bb730245ffileName">UpdateRecordContactAddress</con:setting><con:setting id="8d354d4b-b06d-49b9-9fa6-8c77446494dffileName">UpdateRecordContactAddress</con:setting></con:settings><con:testStep type="datasource" name="GetContactId" id="0d7a75e0-7f73-4992-9c59-22f1edc304f8"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/RecordContactId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecordContactId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="GetRecordContactAddressId" id="850ba9e7-ca7c-4a1a-99b1-0f549f376aa4"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/TempRecordContactAddressId</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>RecContAddressId</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="datasource" name="ReadSecondRec" id="abf4bc9b-45bd-48b0-94c8-613a06421453"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>data/TempRecIdBuilding</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>true</quotedValues></con:configuration></con:dataSource><con:property>Recid2</con:property><con:property>Desc</con:property><con:property>CustId</con:property><con:property>trackId</con:property><con:property>status</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="UpdateRecordContactAddress" id="e6cbdbb1-d9e6-48e7-9d1e-e820052f90b4"><con:settings/><con:config service="https://apps-apis.dev.accela.com" resourcePath="/v4/records/{recordId}/contacts/{contactId}/addresses/{id}" methodName="UpdateRecordContactAddress" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="UpdateRecordContactAddress" id="8828a7d5-76c1-4ee4-867f-fcacfafba741" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request>{
+    "streetName": "6848 Eden St",
+    "unitType": {
+        "value": "Unit Type"
+    },
+    "faxCountryCode": "001",
+    "addressLine2": "Adddress Ln2",
+    "unitEnd": "00002",
+    "type": {
+        "value": "type 123"
+    },
+    "isPrimary": "Y",
+    "city": "Dublin",
+    "houseAlphaEnd": "1",
+    "expirationDate": "",
+    "streetStart": "1234",
+    "postalCode": "94568",
+    "streetAddress": "100 Street Address",
+    "effectiveDate": "",
+    "phoneCountryCode": "001",
+    "levelStart": "111",
+    "addressLine3": "Address Lane 3",
+    "state": {
+        "value": "CA"
+    },
+    "levelEnd": "2222",
+    "direction": {
+        "value": "E"
+    },
+    "streetEnd": "12345",
+    "id": "1028",
+    "levelPrefix": "343434",
+    "recipient": "12345",
+    "fax": "12345",
+    "addressLine1": "Address Lane 1 ",
+    "status": {
+        "value": "A"
+    },
+    "phone": "9254133215",
+    "country": {
+        "value": "US"
+    },
+    "houseAlphaStart": "11 AlphaSt",
+    "streetPrefix": "ST",
+    "unitStart": "1234",
+    "streetSuffixDirection": {
+        "value": "E"
+    }
+}
+</con:request><con:originalUri>https://apis.dev.accela.com/v4/records/BPTDEV-15CAP-00000-00102/contacts/50332105/addresses/802</con:originalUri><con:assertion type="JsonPath Match" id="2af44c7f-c227-4187-8b91-c81135d2468b" name="Match content of [phone]"><con:configuration><path>$.result.phone</path><content>9254133215</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="22e80ec8-5e78-466b-8f67-c3e5eb808e14" name="Match content of [status]"><con:configuration><path>$.status</path><content>200</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="23be0cf0-1985-4a4b-9095-5f607b4e4a98" name="Match content of [streetName]"><con:configuration><path>$.result.streetName</path><content>6848 Eden St</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="69c96ec0-fc38-404b-bfc4-8d54cfe5ae33" name="Invalid HTTP Status Codes"><con:configuration><codes>400,401,403,404,500</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="id" value="${GetRecordContactAddressId#RecContAddressId}"/>
+  <con:entry key="recordId" value="${ReadSecondRec#Recid2}"/>
+  <con:entry key="contactId" value="${GetContactId#RecordContactId}"/>
+  <con:entry key="token" value="${#Project#AAAccessToken}"/>
+  <con:entry key="lang" value=""/>
+</con:parameters><con:parameterOrder><con:entry>recordId</con:entry><con:entry>contactId</con:entry><con:entry>id</con:entry><con:entry>lang</con:entry><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

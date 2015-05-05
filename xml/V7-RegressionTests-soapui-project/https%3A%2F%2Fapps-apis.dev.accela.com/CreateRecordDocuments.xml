@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="CreateRecordDocuments" path="/v4/records/{recordId}/documents" id="9f1ca3a6-74d5-402f-a139-e409bff7f41d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="9f1ca3a6-74d5-402f-a139-e409bff7f41dfileName">CreateRecordDocuments</con:setting></con:settings><con:parameters><con:parameter><con:name>recordId</con:name><con:value>recordId</con:value><con:style>TEMPLATE</con:style><con:default>recordId</con:default></con:parameter><con:parameter><con:name>userId</con:name><con:value>{userId}</con:value><con:style>QUERY</con:style><con:default>{userId}</con:default></con:parameter><con:parameter><con:name>lang</con:name><con:value>{lang}</con:value><con:style>QUERY</con:style><con:default>{lang}</con:default></con:parameter><con:parameter><con:name>category</con:name><con:value>{category}</con:value><con:style>QUERY</con:style><con:default>{category}</con:default></con:parameter><con:parameter><con:name>group</con:name><con:value>{group}</con:value><con:style>QUERY</con:style><con:default>{group}</con:default></con:parameter><con:parameter><con:name>password</con:name><con:value>{password}</con:value><con:style>QUERY</con:style><con:default>{password}</con:default></con:parameter></con:parameters><con:method name="CreateRecordDocuments" id="330e56eb-5f85-489d-ada6-4408c80d8240" method="POST"><con:settings/><con:parameters/><con:request name="CreateRecordDocuments" id="09c1ef0e-02e7-490c-840e-878e8c1fc5fa" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="authorization" value="${#Project#AAAccessToken}"/>
+  &lt;con:entry key="x-accela-appid" value="${#Project#AppIdAGY}"/>
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>${AAEndPointUrl}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters>
+  <con:entry key="recordId" value=""/>
+  <con:entry key="category" value=""/>
+  <con:entry key="userId" value=""/>
+  <con:entry key="group" value=""/>
+  <con:entry key="lang" value=""/>
+  <con:entry key="password" value=""/>
+</con:parameters></con:request></con:method></con:resource>

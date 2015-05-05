@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateRecord" searchProperties="true" id="40a01c19-5b1d-4b64-8c27-48e5a81b10eb" xmlns:con="http://eviware.com/soapui/config"><con:description>TestCase generated for REST Resource [CreateRecord] located at [/v4/records]</con:description><con:settings><con:setting id="40a01c19-5b1d-4b64-8c27-48e5a81b10ebfileName">CreateRecord-TestCase</con:setting></con:settings><con:testStep type="calltestcase" name="GetAgencyUserToken" id="1208e4a9-5769-43e7-9695-a8d05c9d358b"><con:settings/><con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:targetTestCase>7aaee081-8f71-40c1-980f-c5c8276abf73</con:targetTestCase><con:properties/><con:returnProperties/><con:runMode>PARALLELL</con:runMode></con:config></con:testStep><con:testStep type="datasource" name="ReadCreateRecordRecordTypeData" id="640bb0ac-cd53-41df-b96b-28aa83008141"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>../testdata/CreateRecordRecordType.txt</fileName><separator>,</separator><trim>true</trim><charset>UTF-8</charset><quotedValues>false</quotedValues></con:configuration></con:dataSource><con:property>Module</con:property><con:property>Group</con:property><con:property>Type</con:property><con:property>SubType</con:property><con:property>Category</con:property><con:property>Value</con:property><con:startRow/><con:endRow/><con:trimValues>false</con:trimValues><con:entitizeValues>false</con:entitizeValues><con:restartOnRun>true</con:restartOnRun><con:expandProperties>false</con:expandProperties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord" id="1ae950d8-7e6a-4827-90e0-e6e3dc75d3a5"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+      "type":          {
+      	  "module": "${ReadCreateRecordRecordTypeData#Module}",
+            "group": "${ReadCreateRecordRecordTypeData#Group}",
+            "type": "${ReadCreateRecordRecordTypeData#Type}",
+            "subType": "${ReadCreateRecordRecordTypeData#SubType}",
+            "category": "${ReadCreateRecordRecordTypeData#Category}",
+            "value": "${ReadCreateRecordRecordTypeData#Value}"
+         },
+         "description":"Building/Residential/AAREST-API-TEST/APPLICATION-1 API Regression Test Record 1",
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": "100000.99",
+      "undistributedCost": "10000.99",
+      "initiatedProduct": "AV360",
+      "jobValue": 125.88,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 45,
+      "numberOfBuildings": 45,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 10000.88,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": false
+}}
+</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="bc1f470c-f230-43ad-b257-c4095343b1c2" name="Match content of [description]"><con:configuration><path>$.result.description</path><content>Building/Residential/AAREST-API-TEST/APPLICATION-1 API Regression Test Record 1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="9daca7c3-0cd1-485b-90ff-ea3eaa8c97e7" name="Match content of [totalJobCost]"><con:configuration><path>$.result.totalJobCost</path><content>100000.99</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="3a8bb469-e31f-49d0-8714-a58632420e3b" name="Match content of [text]"><con:configuration><path>$.result.constructionType.text</path><content>Manufactured Home (Mobile Homes)</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="cc982950-0aa5-4d0f-bc85-09f1035bca0e" name="Match content of [module]"><con:configuration><path>$.result.type.module</path><content>${ReadCreateRecordRecordTypeData#Module}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="bcb1d282-a9c1-40fe-86f3-8e1055042879" name="Match content of [type]"><con:configuration><path>$.result.type.type</path><content>${ReadCreateRecordRecordTypeData#Type}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="898b3cea-4dac-4174-ac2f-cef841db7a58" name="Match content of [category]"><con:configuration><path>$.result.type.category</path><content>${ReadCreateRecordRecordTypeData#Category}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="bad3fce5-ae87-4a92-8ac0-e56ea88699bd" name="Match content of [subType]"><con:configuration><path>$.result.type.subType</path><content>${ReadCreateRecordRecordTypeData#SubType}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="9f93a696-0bc0-429d-b86e-d195b23c9936" name="Match content of [group]"><con:configuration><path>$.result.type.group</path><content>${ReadCreateRecordRecordTypeData#Group}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRecDataToFile" id="d3c05389-d3da-48fb-8e90-52b4f09ff6ef"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/TempRecIdBuilding</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord-2" id="089cd132-26d9-40b8-ad32-a89b2905c2e7"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord-2" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+      "type":          {
+      	  "module": "${ReadCreateRecordRecordTypeData#Module}",
+            "group": "${ReadCreateRecordRecordTypeData#Group}",
+            "type": "${ReadCreateRecordRecordTypeData#Type}",
+            "subType": "${ReadCreateRecordRecordTypeData#SubType}",
+            "category": "${ReadCreateRecordRecordTypeData#Category}",
+            "value": "${ReadCreateRecordRecordTypeData#Value}"
+         },
+         "description":"Building/Residential/AAREST-API-TEST/APPLICATION-1 API Regression Test Record 2",
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": "100000.99",
+      "undistributedCost": "10000.99",
+      "initiatedProduct": "AV360",
+      "jobValue": 125.88,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 45,
+      "numberOfBuildings": 45,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 10000.88,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": false
+}}
+</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRec2DataToFile" id="427381dc-2902-4cfa-9c07-2b95080257da"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/TempRecId2Building</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord-2#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord-2#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord-2#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord-2#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord-2#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="restrequest" name="CreateRecord-3" id="e2121e0f-e4fd-4270-a768-608257640123"><con:settings/><con:config service="Records" resourcePath="/v4/records" methodName="CreateRecord" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="CreateRecord-3" mediaType="application/json" postQueryString="false" id="630c28a8-3177-4e89-8b57-c78f8a2d3e09"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#SERVICE_ENDPOINT}</con:endpoint><con:request>{
+      "type":          {
+      	  "module": "${ReadCreateRecordRecordTypeData#Module}",
+            "group": "${ReadCreateRecordRecordTypeData#Group}",
+            "type": "${ReadCreateRecordRecordTypeData#Type}",
+            "subType": "${ReadCreateRecordRecordTypeData#SubType}",
+            "category": "${ReadCreateRecordRecordTypeData#Category}",
+            "value": "${ReadCreateRecordRecordTypeData#Value}"
+         },
+         "description":"Building/Residential/AAREST-API-TEST/APPLICATION-1 API Regression Test Record 3",
+      "status":       {
+         "value": "Ready to Issue",
+         "text": "Ready to Issue"
+      },
+      "statusDate": "2014-05-25 01:01:08",
+      "totalJobCost": "100000.99",
+      "undistributedCost": "10000.99",
+      "initiatedProduct": "AV360",
+      "jobValue": 125.88,
+      "constructionType":       {
+         "value": "106",
+         "text": "Manufactured Home (Mobile Homes)"
+      },
+      "housingUnits": 45,
+      "numberOfBuildings": 45,
+      "createdBy": "ADMIN",
+      "module": "Building",
+      "totalFee": 10000.88,
+      "totalPay": 0,
+      "balance": 0,
+      "booking": false,
+      "infraction": false,
+      "misdemeanor": false,
+      "offenseWitnessed": false,
+      "defendantSignature": false,
+      "publicOwned": false
+}}
+</con:request><con:originalUri>https://apps-apis.dev.accela.com/v4/records</con:originalUri><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="cd63cb2b-2dd7-41ab-b071-1265f013a7c9"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="48ff5870-ba2b-4c45-b4b1-6a03be36ea27" name="Check for existence of [id]"><con:configuration><path>$.result.id</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2f4d3c56-1d7d-4c1f-8875-70609f585b5d" name="Match content of [value]"><con:configuration><path>$.result.status.value</path><content>Ready to Issue</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d80fb086-49e9-45e8-97e7-f4a8c4566250" name="Match content of [serviceProviderCode]"><con:configuration><path>$.result.serviceProviderCode</path><content>${#Project#AAAgency}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="token" value="${#Project#AAAccessToken}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:testStep type="datasink" name="WriteRec3DataToFile" id="0fcfa84a-3f4b-410e-85db-100da8b92091"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>../tempdata/TempRecId3Building</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>RecordId</con:name><con:value>${CreateRecord-3#Response#$.result.id}</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>${CreateRecord-3#Response#$.result.customId}</con:value></con:property><con:property><con:name>Description</con:name><con:value>${CreateRecord-3#Response#$.result.description}</con:value></con:property><con:property><con:name>TrackingId</con:name><con:value>${CreateRecord-3#Response#$.result.trackingId}</con:value></con:property><con:property><con:name>SRvCode</con:name><con:value>${CreateRecord-3#Response#$.result.serviceProviderCode}</con:value></con:property></con:properties></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>427381dc-2902-4cfa-9c07-2b95080257da</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>0fcfa84a-3f4b-410e-85db-100da8b92091</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase>

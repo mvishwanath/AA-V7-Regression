@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="8dd810cb-c975-48d1-8026-88934566daa9" name="Inspection-TS" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="8dd810cb-c975-48d1-8026-88934566daa9fileName">Inspection-TS</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>
